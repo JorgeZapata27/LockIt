@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
@@ -77,6 +79,7 @@ extension LoginViewController {
         emailTF.titleLabel.text = "Email Address"
         emailTF.textField.placeholder = "johndoe@gmail.com"
         emailTF.textField.keyboardType = .emailAddress
+        emailTF.textField.autocapitalizationType = .none
         
         // Password TF
         passwordTF.translatesAutoresizingMaskIntoConstraints = false
@@ -117,10 +120,11 @@ extension LoginViewController {
         googleButton.addTarget(self, action: #selector(googleButtonPressed), for: .touchUpInside)
         
         // Or Create An Account
-        var createAccountTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor : normalTextColor!, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)])
+        let createAccountTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor : normalTextColor!, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)])
         createAccountTitle.append(NSAttributedString(string: "Create Account", attributes: [NSAttributedString.Key.foregroundColor : yellowColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12, weight: .bold)]))
         createAccountButton.setAttributedTitle(createAccountTitle, for: .normal)
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createAccountButton.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
     }
     
     
@@ -260,7 +264,31 @@ extension LoginViewController {
     }
     
     @objc func signInButtonPressed() {
-        //
+        showLoading()
+        guard let email = emailTF.textField.text else { return }
+        guard let password = passwordTF.textField.text else { return }
+        
+        if (email.isValidEmail()) {
+            if (password.isValidPassword()) {
+                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+                    if let error = error as? NSError {
+                        self.hideLoading()
+                        self.showErrorAlert(withTitle: "Error", withDescription: error.localizedDescription)
+                    } else {
+                        self.hideLoading()
+                        let controller = HomeViewController()
+                        controller.modalPresentationStyle = .fullScreen
+                        self.present(controller, animated: true)
+                    }
+                }
+            } else {
+                hideLoading()
+                showErrorAlert(withTitle: "Error", withDescription: "Password must exceed 8 characters")
+            }
+        } else {
+            hideLoading()
+            showErrorAlert(withTitle: "Error", withDescription: "Email is not valid")
+        }
     }
     
     @objc func googleButtonPressed() {
@@ -269,6 +297,14 @@ extension LoginViewController {
     
     @objc func appleButtonPressed() {
         //
+    }
+    
+    @objc func createAccountButtonPressed() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        let controller = SignUpViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
     }
     
 }

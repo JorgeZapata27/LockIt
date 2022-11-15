@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,18 @@
 		782F2A332923092C00CAB4C5 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A322923092C00CAB4C5 /* MainTextField.swift */; };
 		782F2A3729230A4700CAB4C5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3629230A4700CAB4C5 /* Colors.swift */; };
 		782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3829230FC100CAB4C5 /* TextField.swift */; };
+		782F2A3B29233D5800CAB4C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */; };
+		782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */; };
+		78C3E099292346FC00F7270C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E098292346FC00F7270C /* HomeViewController.swift */; };
+		78C3E09B2923478800F7270C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09A2923478800F7270C /* Validator.swift */; };
+		78C3E09D2923487500F7270C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09C2923487500F7270C /* Alerts.swift */; };
+		78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09F29234CFC00F7270C /* LoadingDialog.swift */; };
+		A1FE39E3204A806216C7FB92 /* Pods_LockIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A804C495E94197D4C908D78 /* Pods-LockIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockIt.debug.xcconfig"; path = "Target Support Files/Pods-LockIt/Pods-LockIt.debug.xcconfig"; sourceTree = "<group>"; };
+		5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LockIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782F2A172922F38500CAB4C5 /* LockIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		782F2A1A2922F38600CAB4C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		782F2A1C2922F38600CAB4C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +39,13 @@
 		782F2A322923092C00CAB4C5 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		782F2A3629230A4700CAB4C5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		782F2A3829230FC100CAB4C5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		78C3E098292346FC00F7270C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		78C3E09A2923478800F7270C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		78C3E09C2923487500F7270C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		78C3E09F29234CFC00F7270C /* LoadingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDialog.swift; sourceTree = "<group>"; };
+		94B19B9090E05A5B6A220E59 /* Pods-LockIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockIt.release.xcconfig"; path = "Target Support Files/Pods-LockIt/Pods-LockIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +53,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1FE39E3204A806216C7FB92 /* Pods_LockIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70F09EF36D88236D1B5E40A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		782F2A0E2922F38500CAB4C5 = {
 			isa = PBXGroup;
 			children = (
 				782F2A192922F38600CAB4C5 /* LockIt */,
 				782F2A182922F38500CAB4C5 /* Products */,
+				E39100787D1B5ED0F3A3FD90 /* Pods */,
+				70F09EF36D88236D1B5E40A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,10 +91,12 @@
 			children = (
 				782F2A1A2922F38600CAB4C5 /* AppDelegate.swift */,
 				782F2A1C2922F38600CAB4C5 /* SceneDelegate.swift */,
+				78C3E098292346FC00F7270C /* HomeViewController.swift */,
 				782F2A2F2923090900CAB4C5 /* Utils */,
 				782F2A2E292308AF00CAB4C5 /* Auth */,
 				782F2A232922F3FD00CAB4C5 /* Assets.xcassets */,
 				782F2A252922F3FD00CAB4C5 /* LaunchScreen.storyboard */,
+				782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */,
 				782F2A282922F3FD00CAB4C5 /* Info.plist */,
 			);
 			path = LockIt;
@@ -77,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				782F2A1E2922F38600CAB4C5 /* LoginViewController.swift */,
+				782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -88,8 +118,20 @@
 				782F2A322923092C00CAB4C5 /* MainTextField.swift */,
 				782F2A3629230A4700CAB4C5 /* Colors.swift */,
 				782F2A3829230FC100CAB4C5 /* TextField.swift */,
+				78C3E09A2923478800F7270C /* Validator.swift */,
+				78C3E09C2923487500F7270C /* Alerts.swift */,
+				78C3E09F29234CFC00F7270C /* LoadingDialog.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E39100787D1B5ED0F3A3FD90 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A804C495E94197D4C908D78 /* Pods-LockIt.debug.xcconfig */,
+				94B19B9090E05A5B6A220E59 /* Pods-LockIt.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 782F2A2B2922F3FD00CAB4C5 /* Build configuration list for PBXNativeTarget "LockIt" */;
 			buildPhases = (
+				21BAE28DE5C537579E2D3574 /* [CP] Check Pods Manifest.lock */,
 				782F2A132922F38500CAB4C5 /* Sources */,
 				782F2A142922F38500CAB4C5 /* Frameworks */,
 				782F2A152922F38500CAB4C5 /* Resources */,
+				BB0A59F187025386525E1594 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,7 +172,7 @@
 				};
 			};
 			buildConfigurationList = 782F2A122922F38500CAB4C5 /* Build configuration list for PBXProject "LockIt" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -151,11 +195,54 @@
 			buildActionMask = 2147483647;
 			files = (
 				782F2A272922F3FD00CAB4C5 /* LaunchScreen.storyboard in Resources */,
+				782F2A3B29233D5800CAB4C5 /* GoogleService-Info.plist in Resources */,
 				782F2A242922F3FD00CAB4C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21BAE28DE5C537579E2D3574 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LockIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB0A59F187025386525E1594 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LockIt/Pods-LockIt-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LockIt/Pods-LockIt-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LockIt/Pods-LockIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		782F2A132922F38500CAB4C5 /* Sources */ = {
@@ -164,10 +251,15 @@
 			files = (
 				782F2A312923091D00CAB4C5 /* MainButton.swift in Sources */,
 				782F2A332923092C00CAB4C5 /* MainTextField.swift in Sources */,
+				782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */,
 				782F2A1F2922F38600CAB4C5 /* LoginViewController.swift in Sources */,
+				78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */,
 				782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */,
+				78C3E099292346FC00F7270C /* HomeViewController.swift in Sources */,
 				782F2A3729230A4700CAB4C5 /* Colors.swift in Sources */,
+				78C3E09B2923478800F7270C /* Validator.swift in Sources */,
 				782F2A1B2922F38600CAB4C5 /* AppDelegate.swift in Sources */,
+				78C3E09D2923487500F7270C /* Alerts.swift in Sources */,
 				782F2A1D2922F38600CAB4C5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +394,7 @@
 		};
 		782F2A2C2922F3FD00CAB4C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A804C495E94197D4C908D78 /* Pods-LockIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -330,6 +423,7 @@
 		};
 		782F2A2D2922F3FD00CAB4C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94B19B9090E05A5B6A220E59 /* Pods-LockIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
