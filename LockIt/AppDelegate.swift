@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        do {
-          try Auth.auth().signOut()
-        } catch {
-          print("Sign out error")
-        }
+//        do {
+//          try Auth.auth().signOut()
+//        } catch {
+//          print("Sign out error")
+//        }
         
         // Override point for customization after application launch.
         return true

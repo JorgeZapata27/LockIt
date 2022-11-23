@@ -25,7 +25,7 @@
       "scale" : "1x"
     },
     {
-      "filename" : "Dark 1.png",
+      "filename" : "Frame 4.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -36,7 +36,7 @@
           "value" : "light"
         }
       ],
-      "filename" : "Dark.png",
+      "filename" : "Frame 5.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -47,7 +47,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Light.png",
+      "filename" : "Frame 3.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

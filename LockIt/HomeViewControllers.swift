@@ -9,7 +9,7 @@ import UIKit
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewControllers: UIViewController {
     
     let stackView = UIStackView()
     let label = UILabel()
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
     
 }
 
-extension HomeViewController {
+extension HomeViewControllers {
     
     func style() {
         stackView.translatesAutoresizingMaskIntoConstraints = false

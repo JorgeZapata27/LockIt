@@ -18,10 +18,20 @@
 		782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3829230FC100CAB4C5 /* TextField.swift */; };
 		782F2A3B29233D5800CAB4C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */; };
 		782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */; };
-		78C3E099292346FC00F7270C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E098292346FC00F7270C /* HomeViewController.swift */; };
+		784D9E49292DC57F009238AD /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E48292DC57F009238AD /* UILabel.swift */; };
+		784D9E4C292DD13D009238AD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E4B292DD13D009238AD /* TabBarController.swift */; };
+		784D9E4E292DD1BE009238AD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E4D292DD1BE009238AD /* HomeViewController.swift */; };
+		784D9E50292DD1CB009238AD /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E4F292DD1CB009238AD /* FavoritesViewController.swift */; };
+		784D9E52292DD1D4009238AD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E51292DD1D3009238AD /* AddViewController.swift */; };
+		784D9E54292DD1DA009238AD /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E53292DD1DA009238AD /* GeneratorViewController.swift */; };
+		784D9E56292DD1E1009238AD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E55292DD1E1009238AD /* AccountViewController.swift */; };
+		784D9E58292DD621009238AD /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E57292DD621009238AD /* BarView.swift */; };
+		78C3E099292346FC00F7270C /* HomeViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E098292346FC00F7270C /* HomeViewControllers.swift */; };
 		78C3E09B2923478800F7270C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09A2923478800F7270C /* Validator.swift */; };
 		78C3E09D2923487500F7270C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09C2923487500F7270C /* Alerts.swift */; };
 		78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09F29234CFC00F7270C /* LoadingDialog.swift */; };
+		78C3E0A22923BF3100F7270C /* ForgotPassswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E0A12923BF3100F7270C /* ForgotPassswordViewController.swift */; };
+		78C3E0A52923C32300F7270C /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E0A42923C32300F7270C /* FirebaseAPI.swift */; };
 		A1FE39E3204A806216C7FB92 /* Pods_LockIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +51,20 @@
 		782F2A3829230FC100CAB4C5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		78C3E098292346FC00F7270C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		784D9E48292DC57F009238AD /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		784D9E4B292DD13D009238AD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		784D9E4D292DD1BE009238AD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		784D9E4F292DD1CB009238AD /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		784D9E51292DD1D3009238AD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		784D9E53292DD1DA009238AD /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
+		784D9E55292DD1E1009238AD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		784D9E57292DD621009238AD /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		78C3E098292346FC00F7270C /* HomeViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllers.swift; sourceTree = "<group>"; };
 		78C3E09A2923478800F7270C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		78C3E09C2923487500F7270C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		78C3E09F29234CFC00F7270C /* LoadingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDialog.swift; sourceTree = "<group>"; };
+		78C3E0A12923BF3100F7270C /* ForgotPassswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassswordViewController.swift; sourceTree = "<group>"; };
+		78C3E0A42923C32300F7270C /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		94B19B9090E05A5B6A220E59 /* Pods-LockIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockIt.release.xcconfig"; path = "Target Support Files/Pods-LockIt/Pods-LockIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,9 +111,11 @@
 			children = (
 				782F2A1A2922F38600CAB4C5 /* AppDelegate.swift */,
 				782F2A1C2922F38600CAB4C5 /* SceneDelegate.swift */,
-				78C3E098292346FC00F7270C /* HomeViewController.swift */,
+				78C3E098292346FC00F7270C /* HomeViewControllers.swift */,
 				782F2A2F2923090900CAB4C5 /* Utils */,
 				782F2A2E292308AF00CAB4C5 /* Auth */,
+				784D9E4A292DD129009238AD /* TabBar */,
+				78C3E0A32923C0EF00F7270C /* Networking */,
 				782F2A232922F3FD00CAB4C5 /* Assets.xcassets */,
 				782F2A252922F3FD00CAB4C5 /* LaunchScreen.storyboard */,
 				782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */,
@@ -107,6 +129,7 @@
 			children = (
 				782F2A1E2922F38600CAB4C5 /* LoginViewController.swift */,
 				782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */,
+				78C3E0A12923BF3100F7270C /* ForgotPassswordViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -121,8 +144,31 @@
 				78C3E09A2923478800F7270C /* Validator.swift */,
 				78C3E09C2923487500F7270C /* Alerts.swift */,
 				78C3E09F29234CFC00F7270C /* LoadingDialog.swift */,
+				784D9E48292DC57F009238AD /* UILabel.swift */,
+				784D9E57292DD621009238AD /* BarView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		784D9E4A292DD129009238AD /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				784D9E4B292DD13D009238AD /* TabBarController.swift */,
+				784D9E4D292DD1BE009238AD /* HomeViewController.swift */,
+				784D9E4F292DD1CB009238AD /* FavoritesViewController.swift */,
+				784D9E51292DD1D3009238AD /* AddViewController.swift */,
+				784D9E53292DD1DA009238AD /* GeneratorViewController.swift */,
+				784D9E55292DD1E1009238AD /* AccountViewController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		78C3E0A32923C0EF00F7270C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				78C3E0A42923C32300F7270C /* FirebaseAPI.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		E39100787D1B5ED0F3A3FD90 /* Pods */ = {
@@ -250,13 +296,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				782F2A312923091D00CAB4C5 /* MainButton.swift in Sources */,
+				784D9E4C292DD13D009238AD /* TabBarController.swift in Sources */,
+				784D9E56292DD1E1009238AD /* AccountViewController.swift in Sources */,
 				782F2A332923092C00CAB4C5 /* MainTextField.swift in Sources */,
+				784D9E4E292DD1BE009238AD /* HomeViewController.swift in Sources */,
 				782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */,
 				782F2A1F2922F38600CAB4C5 /* LoginViewController.swift in Sources */,
+				784D9E54292DD1DA009238AD /* GeneratorViewController.swift in Sources */,
 				78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */,
 				782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */,
-				78C3E099292346FC00F7270C /* HomeViewController.swift in Sources */,
+				784D9E52292DD1D4009238AD /* AddViewController.swift in Sources */,
+				78C3E099292346FC00F7270C /* HomeViewControllers.swift in Sources */,
+				784D9E58292DD621009238AD /* BarView.swift in Sources */,
 				782F2A3729230A4700CAB4C5 /* Colors.swift in Sources */,
+				784D9E50292DD1CB009238AD /* FavoritesViewController.swift in Sources */,
+				78C3E0A22923BF3100F7270C /* ForgotPassswordViewController.swift in Sources */,
+				78C3E0A52923C32300F7270C /* FirebaseAPI.swift in Sources */,
+				784D9E49292DC57F009238AD /* UILabel.swift in Sources */,
 				78C3E09B2923478800F7270C /* Validator.swift in Sources */,
 				782F2A1B2922F38600CAB4C5 /* AppDelegate.swift in Sources */,
 				78C3E09D2923487500F7270C /* Alerts.swift in Sources */,

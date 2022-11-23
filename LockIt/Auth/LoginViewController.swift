@@ -12,7 +12,6 @@ import FirebaseDatabase
 class LoginViewController: UIViewController {
     
     // MARK: - UI Components
-    let scrollView = UIScrollView()
     let logoImageView = UIImageView()
     let titleLabel = UILabel()
     let deskLabel = UILabel()
@@ -45,15 +44,11 @@ extension LoginViewController {
     // MARK: - General
     func general() {
         view.backgroundColor = backgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Styling
     func style() {
-        // Scroll View
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
-        scrollView.backgroundColor = backgroundColor
-        scrollView.keyboardDismissMode = .onDrag
         
         // Logo Image View
         logoImageView.image = UIImage(named: "AppIconImage")
@@ -80,12 +75,14 @@ extension LoginViewController {
         emailTF.textField.placeholder = "johndoe@gmail.com"
         emailTF.textField.keyboardType = .emailAddress
         emailTF.textField.autocapitalizationType = .none
+        emailTF.textField.delegate = self
         
         // Password TF
         passwordTF.translatesAutoresizingMaskIntoConstraints = false
         passwordTF.titleLabel.text = "Password"
         passwordTF.textField.placeholder = "Your Password"
         passwordTF.textField.isSecureTextEntry = true
+        passwordTF.textField.delegate = self
         
         // Forgot Password
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
@@ -130,26 +127,18 @@ extension LoginViewController {
     
     // MARK: - Layout
     func layout() {
-        // Scroll View
-        view.addSubview(scrollView)
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
         
         // Logo Image View
-        scrollView.addSubview(logoImageView)
+        view.addSubview(logoImageView)
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 14),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -50),
             logoImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
             logoImageView.widthAnchor.constraint(equalToConstant: 45),
             logoImageView.heightAnchor.constraint(equalToConstant: 45)
         ])
         
         // Title Label
-        scrollView.addSubview(titleLabel)
+        view.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 22),
             titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -158,7 +147,7 @@ extension LoginViewController {
         ])
         
         // Desc Label
-        scrollView.addSubview(deskLabel)
+        view.addSubview(deskLabel)
         NSLayoutConstraint.activate([
             deskLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             deskLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -167,7 +156,7 @@ extension LoginViewController {
         ])
         
         // Email Text Field
-        scrollView.addSubview(emailTF)
+        view.addSubview(emailTF)
         NSLayoutConstraint.activate([
             emailTF.topAnchor.constraint(equalTo: deskLabel.bottomAnchor, constant: 52),
             emailTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -176,7 +165,7 @@ extension LoginViewController {
         ])
         
         // Password Text Field
-        scrollView.addSubview(passwordTF)
+        view.addSubview(passwordTF)
         NSLayoutConstraint.activate([
             passwordTF.topAnchor.constraint(equalTo: emailTF.bottomAnchor, constant: 14),
             passwordTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -185,7 +174,7 @@ extension LoginViewController {
         ])
         
         // Forgot Password Button
-        scrollView.addSubview(forgotPasswordButton)
+        view.addSubview(forgotPasswordButton)
         NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 15),
             forgotPasswordButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -194,7 +183,7 @@ extension LoginViewController {
         ])
         
         // Sign In Button
-        scrollView.addSubview(signInButton)
+        view.addSubview(signInButton)
         NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 18),
             signInButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -203,7 +192,7 @@ extension LoginViewController {
         ])
         
         // Or Lines
-        scrollView.addSubview(orLine1)
+        view.addSubview(orLine1)
         NSLayoutConstraint.activate([
             orLine1.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 33),
             orLine1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -212,7 +201,7 @@ extension LoginViewController {
         ])
         
         // Or Line View
-        scrollView.addSubview(orLineView)
+        view.addSubview(orLineView)
         NSLayoutConstraint.activate([
             orLineView.centerYAnchor.constraint(equalTo: orLine1.centerYAnchor),
             orLineView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -221,7 +210,7 @@ extension LoginViewController {
         ])
         
         // Or Label
-        scrollView.addSubview(orLabel)
+        view.addSubview(orLabel)
         NSLayoutConstraint.activate([
             orLabel.centerYAnchor.constraint(equalTo: orLineView.centerYAnchor),
             orLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -230,7 +219,7 @@ extension LoginViewController {
         ])
         
         // Apple Button
-        scrollView.addSubview(appleButton)
+        view.addSubview(appleButton)
         NSLayoutConstraint.activate([
             appleButton.topAnchor.constraint(equalTo: orLineView.bottomAnchor, constant: 33),
             appleButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -239,7 +228,7 @@ extension LoginViewController {
         ])
         
         // Apple Button
-        scrollView.addSubview(googleButton)
+        view.addSubview(googleButton)
         NSLayoutConstraint.activate([
             googleButton.topAnchor.constraint(equalTo: orLineView.bottomAnchor, constant: 33),
             googleButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25),
@@ -248,7 +237,7 @@ extension LoginViewController {
         ])
         
         // Create Account Button
-        scrollView.addSubview(createAccountButton)
+        view.addSubview(createAccountButton)
         NSLayoutConstraint.activate([
             createAccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
             createAccountButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -259,8 +248,16 @@ extension LoginViewController {
     
     // MARK: - Functions
     
+    private func toHomeScreen() {
+        let controller = HomeViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
+    }
+    
     @objc func forgotPasswordButtonPressed() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        print("hi there")
+        navigationController?.pushViewController(ForgotPassswordViewController(), animated: true)
     }
     
     @objc func signInButtonPressed() {
@@ -270,15 +267,13 @@ extension LoginViewController {
         
         if (email.isValidEmail()) {
             if (password.isValidPassword()) {
-                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                    if let error = error as? NSError {
+                FirebaseAPI.shared.signIn(withEmail: email, withPassword: password) { success, errorMessage in
+                    if success {
                         self.hideLoading()
-                        self.showErrorAlert(withTitle: "Error", withDescription: error.localizedDescription)
+                        self.toHomeScreen()
                     } else {
                         self.hideLoading()
-                        let controller = HomeViewController()
-                        controller.modalPresentationStyle = .fullScreen
-                        self.present(controller, animated: true)
+                        self.showErrorAlert(withTitle: "Error", withDescription: errorMessage)
                     }
                 }
             } else {
@@ -292,7 +287,11 @@ extension LoginViewController {
     }
     
     @objc func googleButtonPressed() {
-        //
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        print("hi there")
+        let controller = ForgotPassswordViewController()
+        controller.modalPresentationStyle = .pageSheet
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func appleButtonPressed() {
@@ -305,6 +304,22 @@ extension LoginViewController {
         let controller = SignUpViewController()
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true)
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTF.textField {
+            passwordTF.textField.becomeFirstResponder()
+        } else if textField == passwordTF.textField {
+            textField.resignFirstResponder()
+            signInButtonPressed()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
 }
