@@ -16,6 +16,8 @@ let normalTextColor = UIColor(named: "TextColor")
 
 let secondaryTextColor = UIColor(named: "SecondaryTextColor")
 
+let shadowColor = UIColor(named: "ShadowColor")!.cgColor
+
 let secondaryBackgroundColor = UIColor(named: "SecondaryBackgroundColor")
 
 let yellowColor = UIColor(red: 241/244, green: 196/244, blue: 15/244, alpha: 1)

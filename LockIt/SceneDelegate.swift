@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,8 +15,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
       
+        let firebase = FirebaseAPI.shared
+        let user = Auth.auth().currentUser
+        
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = LoginViewController()
+        if (user != nil) {
+            firebase.updateLastAuth()
+            firebase.usesBimetrics(user!) { choice in
+                if choice == true {
+                    window.rootViewController = UINavigationController(rootViewController: BiometricsEntry())
+                } else {
+                    window.rootViewController = UINavigationController(rootViewController: TabBarController())
+                }
+            }
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
         window.makeKeyAndVisible()
         self.window = window
     }

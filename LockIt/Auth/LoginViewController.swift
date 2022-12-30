@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
     
     // MARK: - UI Components
-    let scrollView = UIScrollView()
     let logoImageView = UIImageView()
     let titleLabel = UILabel()
     let deskLabel = UILabel()
@@ -43,15 +44,11 @@ extension LoginViewController {
     // MARK: - General
     func general() {
         view.backgroundColor = backgroundColor
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Styling
     func style() {
-        // Scroll View
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
-        scrollView.backgroundColor = backgroundColor
-        scrollView.keyboardDismissMode = .onDrag
         
         // Logo Image View
         logoImageView.image = UIImage(named: "AppIconImage")
@@ -77,12 +74,15 @@ extension LoginViewController {
         emailTF.titleLabel.text = "Email Address"
         emailTF.textField.placeholder = "johndoe@gmail.com"
         emailTF.textField.keyboardType = .emailAddress
+        emailTF.textField.autocapitalizationType = .none
+        emailTF.textField.delegate = self
         
         // Password TF
         passwordTF.translatesAutoresizingMaskIntoConstraints = false
         passwordTF.titleLabel.text = "Password"
         passwordTF.textField.placeholder = "Your Password"
         passwordTF.textField.isSecureTextEntry = true
+        passwordTF.textField.delegate = self
         
         // Forgot Password
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
@@ -117,35 +117,28 @@ extension LoginViewController {
         googleButton.addTarget(self, action: #selector(googleButtonPressed), for: .touchUpInside)
         
         // Or Create An Account
-        var createAccountTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor : normalTextColor!, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)])
+        let createAccountTitle = NSMutableAttributedString(string: "Don't have an account? ", attributes: [NSAttributedString.Key.foregroundColor : normalTextColor!, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)])
         createAccountTitle.append(NSAttributedString(string: "Create Account", attributes: [NSAttributedString.Key.foregroundColor : yellowColor, NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12, weight: .bold)]))
         createAccountButton.setAttributedTitle(createAccountTitle, for: .normal)
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createAccountButton.addTarget(self, action: #selector(createAccountButtonPressed), for: .touchUpInside)
     }
     
     
     // MARK: - Layout
     func layout() {
-        // Scroll View
-        view.addSubview(scrollView)
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
         
         // Logo Image View
-        scrollView.addSubview(logoImageView)
+        view.addSubview(logoImageView)
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 14),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -50),
             logoImageView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
             logoImageView.widthAnchor.constraint(equalToConstant: 45),
             logoImageView.heightAnchor.constraint(equalToConstant: 45)
         ])
         
         // Title Label
-        scrollView.addSubview(titleLabel)
+        view.addSubview(titleLabel)
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 22),
             titleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -154,7 +147,7 @@ extension LoginViewController {
         ])
         
         // Desc Label
-        scrollView.addSubview(deskLabel)
+        view.addSubview(deskLabel)
         NSLayoutConstraint.activate([
             deskLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             deskLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -163,7 +156,7 @@ extension LoginViewController {
         ])
         
         // Email Text Field
-        scrollView.addSubview(emailTF)
+        view.addSubview(emailTF)
         NSLayoutConstraint.activate([
             emailTF.topAnchor.constraint(equalTo: deskLabel.bottomAnchor, constant: 52),
             emailTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -172,7 +165,7 @@ extension LoginViewController {
         ])
         
         // Password Text Field
-        scrollView.addSubview(passwordTF)
+        view.addSubview(passwordTF)
         NSLayoutConstraint.activate([
             passwordTF.topAnchor.constraint(equalTo: emailTF.bottomAnchor, constant: 14),
             passwordTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -181,7 +174,7 @@ extension LoginViewController {
         ])
         
         // Forgot Password Button
-        scrollView.addSubview(forgotPasswordButton)
+        view.addSubview(forgotPasswordButton)
         NSLayoutConstraint.activate([
             forgotPasswordButton.topAnchor.constraint(equalTo: passwordTF.bottomAnchor, constant: 15),
             forgotPasswordButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -190,7 +183,7 @@ extension LoginViewController {
         ])
         
         // Sign In Button
-        scrollView.addSubview(signInButton)
+        view.addSubview(signInButton)
         NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(equalTo: forgotPasswordButton.bottomAnchor, constant: 18),
             signInButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -199,7 +192,7 @@ extension LoginViewController {
         ])
         
         // Or Lines
-        scrollView.addSubview(orLine1)
+        view.addSubview(orLine1)
         NSLayoutConstraint.activate([
             orLine1.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 33),
             orLine1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -208,7 +201,7 @@ extension LoginViewController {
         ])
         
         // Or Line View
-        scrollView.addSubview(orLineView)
+        view.addSubview(orLineView)
         NSLayoutConstraint.activate([
             orLineView.centerYAnchor.constraint(equalTo: orLine1.centerYAnchor),
             orLineView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -217,7 +210,7 @@ extension LoginViewController {
         ])
         
         // Or Label
-        scrollView.addSubview(orLabel)
+        view.addSubview(orLabel)
         NSLayoutConstraint.activate([
             orLabel.centerYAnchor.constraint(equalTo: orLineView.centerYAnchor),
             orLabel.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -226,7 +219,7 @@ extension LoginViewController {
         ])
         
         // Apple Button
-        scrollView.addSubview(appleButton)
+        view.addSubview(appleButton)
         NSLayoutConstraint.activate([
             appleButton.topAnchor.constraint(equalTo: orLineView.bottomAnchor, constant: 33),
             appleButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -235,7 +228,7 @@ extension LoginViewController {
         ])
         
         // Apple Button
-        scrollView.addSubview(googleButton)
+        view.addSubview(googleButton)
         NSLayoutConstraint.activate([
             googleButton.topAnchor.constraint(equalTo: orLineView.bottomAnchor, constant: 33),
             googleButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25),
@@ -244,7 +237,7 @@ extension LoginViewController {
         ])
         
         // Create Account Button
-        scrollView.addSubview(createAccountButton)
+        view.addSubview(createAccountButton)
         NSLayoutConstraint.activate([
             createAccountButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
             createAccountButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
@@ -255,20 +248,80 @@ extension LoginViewController {
     
     // MARK: - Functions
     
+    private func toHomeScreen() {
+        let controller = HomeViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
+    }
+    
     @objc func forgotPasswordButtonPressed() {
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        print("hi there")
+        navigationController?.pushViewController(ForgotPassswordViewController(), animated: true)
     }
     
     @objc func signInButtonPressed() {
-        //
+        showLoading()
+        guard let email = emailTF.textField.text else { return }
+        guard let password = passwordTF.textField.text else { return }
+        
+        if (email.isValidEmail()) {
+            if (password.isValidPassword()) {
+                FirebaseAPI.shared.signIn(withEmail: email, withPassword: password) { success, errorMessage in
+                    if success {
+                        self.hideLoading()
+                        self.toHomeScreen()
+                    } else {
+                        self.hideLoading()
+                        self.showErrorAlert(withTitle: "Error", withDescription: errorMessage)
+                    }
+                }
+            } else {
+                hideLoading()
+                showErrorAlert(withTitle: "Error", withDescription: "Password must exceed 8 characters")
+            }
+        } else {
+            hideLoading()
+            showErrorAlert(withTitle: "Error", withDescription: "Email is not valid")
+        }
     }
     
     @objc func googleButtonPressed() {
-        //
+        FirebaseAPI.shared.googleAuth(withVC: self)
     }
     
     @objc func appleButtonPressed() {
-        //
+        FirebaseAPI.shared.appleAuth(withVC: self)
+    }
+    
+    @objc func createAccountButtonPressed() {
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        let controller = SignUpViewController()
+        controller.modalPresentationStyle = .fullScreen
+        self.present(controller, animated: true)
+    }
+    
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTF.textField {
+            passwordTF.textField.becomeFirstResponder()
+        } else if textField == passwordTF.textField {
+            textField.resignFirstResponder()
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
+            signInButtonPressed()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
 }
