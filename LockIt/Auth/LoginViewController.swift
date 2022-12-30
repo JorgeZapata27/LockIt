@@ -287,15 +287,11 @@ extension LoginViewController {
     }
     
     @objc func googleButtonPressed() {
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        print("hi there")
-        let controller = ForgotPassswordViewController()
-        controller.modalPresentationStyle = .pageSheet
-        self.navigationController?.pushViewController(controller, animated: true)
+        FirebaseAPI.shared.googleAuth(withVC: self)
     }
     
     @objc func appleButtonPressed() {
-        //
+        FirebaseAPI.shared.appleAuth(withVC: self)
     }
     
     @objc func createAccountButtonPressed() {
@@ -310,11 +306,17 @@ extension LoginViewController {
 
 extension LoginViewController: UITextFieldDelegate {
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailTF.textField {
             passwordTF.textField.becomeFirstResponder()
         } else if textField == passwordTF.textField {
             textField.resignFirstResponder()
+            let generator = UIImpactFeedbackGenerator(style: .medium)
+            generator.impactOccurred()
             signInButtonPressed()
         } else {
             textField.resignFirstResponder()

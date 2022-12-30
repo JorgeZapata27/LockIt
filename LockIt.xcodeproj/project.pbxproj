@@ -26,12 +26,26 @@
 		784D9E54292DD1DA009238AD /* GeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E53292DD1DA009238AD /* GeneratorViewController.swift */; };
 		784D9E56292DD1E1009238AD /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E55292DD1E1009238AD /* AccountViewController.swift */; };
 		784D9E58292DD621009238AD /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E57292DD621009238AD /* BarView.swift */; };
+		784D9E5A292E6111009238AD /* AppleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E59292E6111009238AD /* AppleAuth.swift */; };
+		784D9E5C292E6127009238AD /* GoogleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E5B292E6127009238AD /* GoogleAuth.swift */; };
+		784D9E60292E657F009238AD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E5F292E657F009238AD /* UIViewController.swift */; };
 		78C3E099292346FC00F7270C /* HomeViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E098292346FC00F7270C /* HomeViewControllers.swift */; };
 		78C3E09B2923478800F7270C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09A2923478800F7270C /* Validator.swift */; };
 		78C3E09D2923487500F7270C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09C2923487500F7270C /* Alerts.swift */; };
 		78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09F29234CFC00F7270C /* LoadingDialog.swift */; };
 		78C3E0A22923BF3100F7270C /* ForgotPassswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E0A12923BF3100F7270C /* ForgotPassswordViewController.swift */; };
 		78C3E0A52923C32300F7270C /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E0A42923C32300F7270C /* FirebaseAPI.swift */; };
+		78DBE3B22930FEFD0006AE36 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3B12930FEFD0006AE36 /* Dates.swift */; };
+		78DBE3B4293100E10006AE36 /* SetupBiometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3B3293100E10006AE36 /* SetupBiometrics.swift */; };
+		78DBE3B6293103FF0006AE36 /* Haptic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3B5293103FF0006AE36 /* Haptic.swift */; };
+		78DBE3B829310C750006AE36 /* Biometrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3B729310C750006AE36 /* Biometrics.swift */; };
+		78DBE3BA29310D240006AE36 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3B929310D240006AE36 /* UIImageView.swift */; };
+		78DBE3BC2931186F0006AE36 /* BiometricsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3BB2931186F0006AE36 /* BiometricsEntry.swift */; };
+		78DBE3BE293267BF0006AE36 /* LengthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3BD293267BF0006AE36 /* LengthView.swift */; };
+		78DBE3C029326E6D0006AE36 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3BF29326E6D0006AE36 /* PreferenceView.swift */; };
+		78DBE3C22932712D0006AE36 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3C12932712D0006AE36 /* Preference.swift */; };
+		78DBE3C429327E150006AE36 /* PasswordGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3C329327E150006AE36 /* PasswordGenerator.swift */; };
+		78DBE3C62932813A0006AE36 /* PasswordPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DBE3C52932813A0006AE36 /* PasswordPopup.swift */; };
 		A1FE39E3204A806216C7FB92 /* Pods_LockIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,12 +73,27 @@
 		784D9E53292DD1DA009238AD /* GeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewController.swift; sourceTree = "<group>"; };
 		784D9E55292DD1E1009238AD /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		784D9E57292DD621009238AD /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		784D9E59292E6111009238AD /* AppleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleAuth.swift; sourceTree = "<group>"; };
+		784D9E5B292E6127009238AD /* GoogleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuth.swift; sourceTree = "<group>"; };
+		784D9E5E292E61C6009238AD /* LockIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockIt.entitlements; sourceTree = "<group>"; };
+		784D9E5F292E657F009238AD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		78C3E098292346FC00F7270C /* HomeViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllers.swift; sourceTree = "<group>"; };
 		78C3E09A2923478800F7270C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		78C3E09C2923487500F7270C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		78C3E09F29234CFC00F7270C /* LoadingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDialog.swift; sourceTree = "<group>"; };
 		78C3E0A12923BF3100F7270C /* ForgotPassswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassswordViewController.swift; sourceTree = "<group>"; };
 		78C3E0A42923C32300F7270C /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		78DBE3B12930FEFD0006AE36 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		78DBE3B3293100E10006AE36 /* SetupBiometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBiometrics.swift; sourceTree = "<group>"; };
+		78DBE3B5293103FF0006AE36 /* Haptic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptic.swift; sourceTree = "<group>"; };
+		78DBE3B729310C750006AE36 /* Biometrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Biometrics.swift; sourceTree = "<group>"; };
+		78DBE3B929310D240006AE36 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		78DBE3BB2931186F0006AE36 /* BiometricsEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsEntry.swift; sourceTree = "<group>"; };
+		78DBE3BD293267BF0006AE36 /* LengthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthView.swift; sourceTree = "<group>"; };
+		78DBE3BF29326E6D0006AE36 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		78DBE3C12932712D0006AE36 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
+		78DBE3C329327E150006AE36 /* PasswordGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGenerator.swift; sourceTree = "<group>"; };
+		78DBE3C52932813A0006AE36 /* PasswordPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordPopup.swift; sourceTree = "<group>"; };
 		94B19B9090E05A5B6A220E59 /* Pods-LockIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LockIt.release.xcconfig"; path = "Target Support Files/Pods-LockIt/Pods-LockIt.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +138,7 @@
 		782F2A192922F38600CAB4C5 /* LockIt */ = {
 			isa = PBXGroup;
 			children = (
+				784D9E5E292E61C6009238AD /* LockIt.entitlements */,
 				782F2A1A2922F38600CAB4C5 /* AppDelegate.swift */,
 				782F2A1C2922F38600CAB4C5 /* SceneDelegate.swift */,
 				78C3E098292346FC00F7270C /* HomeViewControllers.swift */,
@@ -130,6 +160,7 @@
 				782F2A1E2922F38600CAB4C5 /* LoginViewController.swift */,
 				782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */,
 				78C3E0A12923BF3100F7270C /* ForgotPassswordViewController.swift */,
+				78DBE3B3293100E10006AE36 /* SetupBiometrics.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -146,6 +177,16 @@
 				78C3E09F29234CFC00F7270C /* LoadingDialog.swift */,
 				784D9E48292DC57F009238AD /* UILabel.swift */,
 				784D9E57292DD621009238AD /* BarView.swift */,
+				784D9E5F292E657F009238AD /* UIViewController.swift */,
+				78DBE3B12930FEFD0006AE36 /* Dates.swift */,
+				78DBE3B5293103FF0006AE36 /* Haptic.swift */,
+				78DBE3B729310C750006AE36 /* Biometrics.swift */,
+				78DBE3B929310D240006AE36 /* UIImageView.swift */,
+				78DBE3BD293267BF0006AE36 /* LengthView.swift */,
+				78DBE3C12932712D0006AE36 /* Preference.swift */,
+				78DBE3BF29326E6D0006AE36 /* PreferenceView.swift */,
+				78DBE3C329327E150006AE36 /* PasswordGenerator.swift */,
+				78DBE3C52932813A0006AE36 /* PasswordPopup.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -154,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				784D9E4B292DD13D009238AD /* TabBarController.swift */,
+				78DBE3BB2931186F0006AE36 /* BiometricsEntry.swift */,
 				784D9E4D292DD1BE009238AD /* HomeViewController.swift */,
 				784D9E4F292DD1CB009238AD /* FavoritesViewController.swift */,
 				784D9E51292DD1D3009238AD /* AddViewController.swift */,
@@ -163,10 +205,20 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		784D9E5D292E612C009238AD /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				784D9E59292E6111009238AD /* AppleAuth.swift */,
+				784D9E5B292E6127009238AD /* GoogleAuth.swift */,
+			);
+			path = "Third Party";
+			sourceTree = "<group>";
+		};
 		78C3E0A32923C0EF00F7270C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				78C3E0A42923C32300F7270C /* FirebaseAPI.swift */,
+				784D9E5D292E612C009238AD /* Third Party */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -295,28 +347,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78DBE3B829310C750006AE36 /* Biometrics.swift in Sources */,
+				78DBE3B6293103FF0006AE36 /* Haptic.swift in Sources */,
 				782F2A312923091D00CAB4C5 /* MainButton.swift in Sources */,
 				784D9E4C292DD13D009238AD /* TabBarController.swift in Sources */,
+				784D9E5C292E6127009238AD /* GoogleAuth.swift in Sources */,
 				784D9E56292DD1E1009238AD /* AccountViewController.swift in Sources */,
+				784D9E60292E657F009238AD /* UIViewController.swift in Sources */,
 				782F2A332923092C00CAB4C5 /* MainTextField.swift in Sources */,
+				78DBE3BE293267BF0006AE36 /* LengthView.swift in Sources */,
 				784D9E4E292DD1BE009238AD /* HomeViewController.swift in Sources */,
 				782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */,
 				782F2A1F2922F38600CAB4C5 /* LoginViewController.swift in Sources */,
 				784D9E54292DD1DA009238AD /* GeneratorViewController.swift in Sources */,
+				78DBE3C429327E150006AE36 /* PasswordGenerator.swift in Sources */,
 				78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */,
 				782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */,
+				78DBE3BC2931186F0006AE36 /* BiometricsEntry.swift in Sources */,
+				78DBE3C62932813A0006AE36 /* PasswordPopup.swift in Sources */,
 				784D9E52292DD1D4009238AD /* AddViewController.swift in Sources */,
 				78C3E099292346FC00F7270C /* HomeViewControllers.swift in Sources */,
+				78DBE3C22932712D0006AE36 /* Preference.swift in Sources */,
 				784D9E58292DD621009238AD /* BarView.swift in Sources */,
+				784D9E5A292E6111009238AD /* AppleAuth.swift in Sources */,
 				782F2A3729230A4700CAB4C5 /* Colors.swift in Sources */,
+				78DBE3B4293100E10006AE36 /* SetupBiometrics.swift in Sources */,
 				784D9E50292DD1CB009238AD /* FavoritesViewController.swift in Sources */,
+				78DBE3BA29310D240006AE36 /* UIImageView.swift in Sources */,
 				78C3E0A22923BF3100F7270C /* ForgotPassswordViewController.swift in Sources */,
 				78C3E0A52923C32300F7270C /* FirebaseAPI.swift in Sources */,
 				784D9E49292DC57F009238AD /* UILabel.swift in Sources */,
+				78DBE3B22930FEFD0006AE36 /* Dates.swift in Sources */,
 				78C3E09B2923478800F7270C /* Validator.swift in Sources */,
 				782F2A1B2922F38600CAB4C5 /* AppDelegate.swift in Sources */,
 				78C3E09D2923487500F7270C /* Alerts.swift in Sources */,
 				782F2A1D2922F38600CAB4C5 /* SceneDelegate.swift in Sources */,
+				78DBE3C029326E6D0006AE36 /* PreferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LockIt/LockIt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZH735L9VC9;
@@ -483,6 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LockIt/LockIt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZH735L9VC9;

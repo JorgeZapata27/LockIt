@@ -20,6 +20,8 @@ class SignUpViewController: UIViewController {
     let orLabel = UILabel()
     let orLine1 = UIView()
     let orLineView = UIView()
+    let firstNameTF = MainTextField()
+    let lastNameTF = MainTextField()
     let emailTF = MainTextField()
     let passwordTF = MainTextField()
     let createAccountButton = MainButton(named: "Create Account")
@@ -84,18 +86,34 @@ extension SignUpViewController {
         orLineView.translatesAutoresizingMaskIntoConstraints = false
         orLineView.backgroundColor = normalBackgroundColor
         
+        // First Name TF
+        firstNameTF.translatesAutoresizingMaskIntoConstraints = false
+        firstNameTF.titleLabel.text = "First Name"
+        firstNameTF.textField.placeholder = "John"
+        firstNameTF.textField.autocapitalizationType = .words
+        firstNameTF.textField.delegate = self
+        
+        // Last Name TF
+        lastNameTF.translatesAutoresizingMaskIntoConstraints = false
+        lastNameTF.titleLabel.text = "Last Name"
+        lastNameTF.textField.placeholder = "Doe"
+        lastNameTF.textField.autocapitalizationType = .words
+        lastNameTF.textField.delegate = self
+        
         // Email TF
         emailTF.translatesAutoresizingMaskIntoConstraints = false
         emailTF.titleLabel.text = "Email Address"
         emailTF.textField.placeholder = "johndoe@gmail.com"
         emailTF.textField.keyboardType = .emailAddress
         emailTF.textField.autocapitalizationType = .none
+        emailTF.textField.delegate = self
         
         // Password TF
         passwordTF.translatesAutoresizingMaskIntoConstraints = false
         passwordTF.titleLabel.text = "Password"
         passwordTF.textField.placeholder = "Your Password"
         passwordTF.textField.isSecureTextEntry = true
+        passwordTF.textField.delegate = self
         
         // Main Button
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
@@ -184,10 +202,28 @@ extension SignUpViewController {
             orLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
         
+        // First Name TF
+        scrollView.addSubview(firstNameTF)
+        NSLayoutConstraint.activate([
+            firstNameTF.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 33),
+            firstNameTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
+            firstNameTF.heightAnchor.constraint(equalToConstant: 76),
+            firstNameTF.widthAnchor.constraint(equalToConstant: (view.frame.size.width - 75) / 2)
+        ])
+        
+        // Last Name TF
+        scrollView.addSubview(lastNameTF)
+        NSLayoutConstraint.activate([
+            lastNameTF.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 33),
+            lastNameTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25),
+            lastNameTF.heightAnchor.constraint(equalToConstant: 76),
+            lastNameTF.widthAnchor.constraint(equalToConstant: (view.frame.size.width - 75) / 2)
+        ])
+        
         // Email Text Field
         scrollView.addSubview(emailTF)
         NSLayoutConstraint.activate([
-            emailTF.topAnchor.constraint(equalTo: orLabel.bottomAnchor, constant: 33),
+            emailTF.topAnchor.constraint(equalTo: firstNameTF.bottomAnchor, constant: 14),
             emailTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25),
             emailTF.heightAnchor.constraint(equalToConstant: 70),
             emailTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25)
@@ -225,30 +261,19 @@ extension SignUpViewController {
     
     @objc func createAccountButtonPressed() {
         showLoading()
+        guard let firstName = firstNameTF.textField.text else { return }
+        guard let lastName = lastNameTF.textField.text else { return }
         guard let email = emailTF.textField.text else { return }
         guard let password = passwordTF.textField.text else { return }
         
         if (email.isValidEmail()) {
             if (password.isValidPassword()) {
-                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                    if let error = error as? NSError {
-                        self.hideLoading()
-                        self.showErrorAlert(withTitle: "Error", withDescription: error.localizedDescription)
+                FirebaseAPI.shared.createAccount(withFirstName: firstName, withLastName: lastName, withEmail: email, withPassword: password) { success, errorMessage in
+                    if success {
+                        self.goToBiometricsConfig()
                     } else {
-                        print("User signs up successfully")
-                        let newUserInfo = Auth.auth().currentUser
-                        let email = newUserInfo?.email
-                        
-                        let ref = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid)
-                        guard let key = ref.child("userId").childByAutoId().key else { return }
-                        let post = ["uid": Auth.auth().currentUser!.uid,
-                                    "email": Auth.auth().currentUser!.email]
-                        let childUpdates = ["\(key)": post]
-                        ref.updateChildValues(childUpdates)
-                        let controller = HomeViewController()
-                        controller.modalPresentationStyle = .fullScreen
                         self.hideLoading()
-                        self.present(controller, animated: true)
+                        self.showErrorAlert(withTitle: "Error", withDescription: errorMessage)
                     }
                 }
             } else {
@@ -262,19 +287,47 @@ extension SignUpViewController {
     }
     
     @objc func googleButtonPressed() {
-        //
+        FirebaseAPI.shared.googleAuth(withVC: self)
     }
     
     @objc func appleButtonPressed() {
-        //
+        FirebaseAPI.shared.appleAuth(withVC: self)
     }
     
     @objc func signInButtonPressed() {
         let generator = UIImpactFeedbackGenerator(style: .medium)
         generator.impactOccurred()
-        let controller = LoginViewController()
+        let controller = UINavigationController(rootViewController: LoginViewController())
         controller.modalPresentationStyle = .fullScreen
         self.present(controller, animated: true)
+    }
+    
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case firstNameTF.textField:
+            textField.resignFirstResponder()
+            lastNameTF.textField.becomeFirstResponder()
+        case lastNameTF.textField:
+            textField.resignFirstResponder()
+            emailTF.textField.becomeFirstResponder()
+        case emailTF.textField:
+            textField.resignFirstResponder()
+            passwordTF.textField.becomeFirstResponder()
+        case passwordTF.textField:
+            textField.resignFirstResponder()
+            createAccountButtonPressed()
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
 }

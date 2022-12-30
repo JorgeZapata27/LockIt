@@ -35,6 +35,15 @@ extension UILabel {
         // Assign string that you've modified to current attributed Text
         attributedText = attributedString
     }
+    
+    func getBiometricText() {
+        switch Biometrics().getAuthType() {
+        case .faceID:
+            self.text = "Add an extra layer of security to your account by enabling FaceID upon entry"
+        case .touchID:
+            self.text = "Add an extra layer of security to your account by enabling TouchID upon entry"
+        }
+    }
 
 }
 

@@ -91,8 +91,7 @@ class MainButton: UIButton {
 extension MainButton {
     
     @objc func hapticFeedback() {
-        let generator = UIImpactFeedbackGenerator(style: .medium)
-        generator.impactOccurred()
+        Haptic().medium()
     }
     
 }

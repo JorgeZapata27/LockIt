@@ -8,6 +8,9 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
+import GoogleSignIn
+
+let currentVersion = "1.0.0"
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        FirebaseAPI.shared.uploadVersion()
+        
 //        do {
 //          try Auth.auth().signOut()
 //        } catch {
@@ -26,6 +31,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
     }
 
     // MARK: UISceneSession Lifecycle

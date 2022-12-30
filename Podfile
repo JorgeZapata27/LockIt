@@ -10,6 +10,7 @@ target 'LockIt' do
   pod 'FirebaseAuth'
   pod 'FirebaseDatabase'
   pod 'ProgressHUD'
+  pod 'GoogleSignIn'
 
 
 end
