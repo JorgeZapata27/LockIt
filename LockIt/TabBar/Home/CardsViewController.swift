@@ -1,13 +1,14 @@
 //
-//  AccountViewController.swift
+//  CardsViewController.swift
 //  LockIt
 //
-//  Created by JJ Zapata on 11/22/22.
+//  Created by JZ M1 on 03.01.23.
 //
 
+import Foundation
 import UIKit
 
-class AccountViewController: UIViewController {
+class CardsViewController : UIViewController {
     
     // MARK: - UI Components
     
@@ -24,12 +25,12 @@ class AccountViewController: UIViewController {
     
 }
 
-extension AccountViewController {
+extension CardsViewController {
     
     // MARK: - General
     func general() {
-        view.backgroundColor = backgroundColor
-        addBarView()
+        view.backgroundColor = normalBackgroundColor
+        navigationItem.title = "Cards"
     }
     
     // MARK: - Styling
