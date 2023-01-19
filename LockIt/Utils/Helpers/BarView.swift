@@ -27,7 +27,7 @@ extension UIViewController {
             barView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             barView.rightAnchor.constraint(equalTo: view.rightAnchor),
             barView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            barView.heightAnchor.constraint(equalToConstant: (tabBarController?.tabBar.frame.size.height)! + 16)
+            barView.heightAnchor.constraint(equalToConstant: (tabBarController?.tabBar.frame.size.height) ?? 0 + 16)
         ])
     }
     

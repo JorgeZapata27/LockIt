@@ -13,6 +13,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         tabBar.tintColor = yellowColor
+        hidesBottomBarWhenPushed = true
         
         setupVCs()
         
@@ -25,7 +26,7 @@ class TabBarController: UITabBarController {
             createNavController(for: FavoritesViewController(), image: UIImage(systemName: "heart")!),
             createNavController(for: AddViewController(), image: UIImage(systemName: "plus")!),
             createNavController(for: GeneratorViewController(), image: UIImage(systemName: "character")!),
-            createNavController(for: AccountViewController(), image: UIImage(systemName: "person")!)
+            createNavController(for: SettingsViewController(), image: UIImage(systemName: "person")!)
         ]
     }
     
