@@ -29,6 +29,8 @@
 		784D9E5A292E6111009238AD /* AppleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E59292E6111009238AD /* AppleAuth.swift */; };
 		784D9E5C292E6127009238AD /* GoogleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E5B292E6127009238AD /* GoogleAuth.swift */; };
 		784D9E60292E657F009238AD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E5F292E657F009238AD /* UIViewController.swift */; };
+		7867EC75297A057C007AE227 /* StrengthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC74297A057C007AE227 /* StrengthType.swift */; };
+		7867EC77297AC3FD007AE227 /* ImageNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC76297AC3FD007AE227 /* ImageNetworking.swift */; };
 		78C3E09B2923478800F7270C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09A2923478800F7270C /* Validator.swift */; };
 		78C3E09D2923487500F7270C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09C2923487500F7270C /* Alerts.swift */; };
 		78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09F29234CFC00F7270C /* LoadingDialog.swift */; };
@@ -88,6 +90,8 @@
 		784D9E5B292E6127009238AD /* GoogleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuth.swift; sourceTree = "<group>"; };
 		784D9E5E292E61C6009238AD /* LockIt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockIt.entitlements; sourceTree = "<group>"; };
 		784D9E5F292E657F009238AD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		7867EC74297A057C007AE227 /* StrengthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthType.swift; sourceTree = "<group>"; };
+		7867EC76297AC3FD007AE227 /* ImageNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworking.swift; sourceTree = "<group>"; };
 		78C3E09A2923478800F7270C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		78C3E09C2923487500F7270C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		78C3E09F29234CFC00F7270C /* LoadingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDialog.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			children = (
 				78C3E0A42923C32300F7270C /* FirebaseAPI.swift */,
 				784D9E5D292E612C009238AD /* Third Party */,
+				7867EC76297AC3FD007AE227 /* ImageNetworking.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				9705149129688184004C4EF3 /* Account.swift */,
+				7867EC74297A057C007AE227 /* StrengthType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				78DBE3B6293103FF0006AE36 /* Haptic.swift in Sources */,
 				782F2A312923091D00CAB4C5 /* MainButton.swift in Sources */,
 				784D9E4C292DD13D009238AD /* TabBarController.swift in Sources */,
+				7867EC77297AC3FD007AE227 /* ImageNetworking.swift in Sources */,
 				97051471295F337B004C4EF3 /* MainOptionView.swift in Sources */,
 				784D9E5C292E6127009238AD /* GoogleAuth.swift in Sources */,
 				784D9E56292DD1E1009238AD /* SettingsViewController.swift in Sources */,
@@ -546,6 +553,7 @@
 				78C3E09D2923487500F7270C /* Alerts.swift in Sources */,
 				782F2A1D2922F38600CAB4C5 /* SceneDelegate.swift in Sources */,
 				9705147B2965CDEA004C4EF3 /* NormalTextField.swift in Sources */,
+				7867EC75297A057C007AE227 /* StrengthType.swift in Sources */,
 				78DBE3C029326E6D0006AE36 /* PreferenceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,7 +695,7 @@
 				CODE_SIGN_ENTITLEMENTS = LockIt/LockIt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7CFV4GMARP;
+				DEVELOPMENT_TEAM = ZH735L9VC9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockIt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -717,7 +725,7 @@
 				CODE_SIGN_ENTITLEMENTS = LockIt/LockIt.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7CFV4GMARP;
+				DEVELOPMENT_TEAM = ZH735L9VC9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockIt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

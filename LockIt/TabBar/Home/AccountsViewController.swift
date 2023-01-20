@@ -7,8 +7,13 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class AccountsViewController : UIViewController {
+    
+    // MARK: - Variables
+    var accounts = [Account]()
     
     // MARK: - UI Components
     let tableView = UITableView()
@@ -21,6 +26,7 @@ class AccountsViewController : UIViewController {
         general()
         style()
         layout()
+        backend()
         
         // Do any additional setup after loading the view.
     }
@@ -71,6 +77,15 @@ extension AccountsViewController {
         ])
     }
     
+    // MARK: - Backend
+    func backend() {
+        accounts.removeAll()
+        FirebaseAPI.shared.getAccounts { accounts in
+            self.accounts = accounts
+            self.tableView.reloadData()
+        }
+    }
+    
     // MARK: - Functions
     
 }
@@ -82,7 +97,7 @@ extension AccountsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return accounts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,6 +110,7 @@ extension AccountsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountCell.reuseID, for: indexPath) as! AccountCell
+        cell.account = accounts[indexPath.row]
         return cell
     }
     
