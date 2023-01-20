@@ -127,4 +127,15 @@ class FirebaseAPI {
         }
     }
     
+    func getAccounts(completion: @escaping([Account]) -> ()) {
+        var accounts = [Account]()
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("passwords").observeSingleEvent(of: .childAdded, with: { snapshot in
+            if let value = snapshot.value as? [String : Any] {
+                let account = Account(withSnapshot: snapshot)
+                accounts.append(account)
+            }
+            completion(accounts)
+        })
+    }
+    
 }

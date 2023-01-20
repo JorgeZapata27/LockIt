@@ -15,23 +15,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
       
-//        let firebase = FirebaseAPI.shared
-//        let user = Auth.auth().currentUser
-//
+        let firebase = FirebaseAPI.shared
+        let user = Auth.auth().currentUser
+
         let window = UIWindow(windowScene: windowScene)
-//        if (user != nil) {
-//            firebase.updateLastAuth()
-//            firebase.usesBimetrics(user!) { choice in
-//                if choice == true {
-//                    window.rootViewController = UINavigationController(rootViewController: BiometricsEntry())
-//                } else {
-//                    window.rootViewController = UINavigationController(rootViewController: TabBarController())
-//                }
-//            }
-//        } else {
-//            window.rootViewController = UINavigationController(rootViewController: LoginViewController())
-//        }
-        window.rootViewController = UINavigationController(rootViewController: TabBarController())
+        if (user != nil) {
+            firebase.updateLastAuth()
+            firebase.usesBimetrics(user!) { choice in
+                if choice == true {
+                    window.rootViewController = UINavigationController(rootViewController: BiometricsEntry())
+                } else {
+                    window.rootViewController = UINavigationController(rootViewController: TabBarController())
+                }
+            }
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: LoginViewController())
+        }
+//        window.rootViewController = UINavigationController(rootViewController: TabBarController())
         window.makeKeyAndVisible()
         self.window = window
     }

@@ -9,6 +9,25 @@ import UIKit
 
 class AccountCell: UITableViewCell {
     
+    var account : Account? {
+        didSet {
+            // customize didset
+            if let account = account {
+                if let name = account.name {
+                    titleLabel.text = name
+                }
+                if let username = account.username {
+                    miniLabel.text = username
+                }
+                if let url = account.imageURL {
+                    iconImageView.loadThumbnail(urlSting: url)
+                }
+            }
+            // set random account via cellForRowAt
+            // make array
+        }
+    }
+    
     static let reuseID = "AccountCellID"
     let reuseID = "AccountCellID"
     
@@ -52,17 +71,15 @@ class AccountCell: UITableViewCell {
         
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         iconImageView.layer.cornerRadius = 10
-        iconImageView.backgroundColor = yellowColor
+        iconImageView.backgroundColor = normalBackgroundColor
         iconImageView.contentMode = .scaleAspectFill
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Snapchat"
         titleLabel.font = .boldSystemFont(ofSize: 12)
         titleLabel.textColor = normalTextColor
         titleLabel.textAlignment = .left
         
         miniLabel.translatesAutoresizingMaskIntoConstraints = false
-        miniLabel.text = "jorge_zapata05"
         miniLabel.font = .systemFont(ofSize: 12)
         miniLabel.textColor = secondaryTextColor
         miniLabel.textAlignment = .left
