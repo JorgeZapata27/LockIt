@@ -39,9 +39,6 @@ extension AccountsViewController {
     func general() {
         view.backgroundColor = normalBackgroundColor
         navigationItem.title = "Accounts"
-        
-        // Table View
-        tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // MARK: - Styling
@@ -49,12 +46,14 @@ extension AccountsViewController {
         searchTF.translatesAutoresizingMaskIntoConstraints = false
         searchTF.textField.placeholder = "Search"
         searchTF.textField.delegate = self
+        searchTF.textField.addTarget(self, action: #selector(searchHandler), for: .editingChanged)
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.reuseID)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     
@@ -78,6 +77,7 @@ extension AccountsViewController {
     }
     
     // MARK: - Backend
+    
     func backend() {
         accounts.removeAll()
         FirebaseAPI.shared.getAccounts { accounts in
@@ -87,6 +87,17 @@ extension AccountsViewController {
     }
     
     // MARK: - Functions
+    
+    @objc func searchHandler() {
+        if let searchText = searchTF.textField.text {
+            if searchText != "" {
+                accounts = accounts.filter({$0.name!.lowercased().contains(searchText.lowercased())})
+                tableView.reloadData()
+            } else {
+                backend()
+            }
+        }
+    }
     
 }
 
