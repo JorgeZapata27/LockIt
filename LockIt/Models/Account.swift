@@ -41,13 +41,13 @@ class Account {
     
     func getStrength(strength: String) -> StrengthType {
         switch strength {
-        case "Weak":
+        case "weak":
             return.weak
-        case "Fair":
+        case "fair":
             return .fair
-        case "Strong":
+        case "strong":
             return .strong
-        case "Error":
+        case "error":
             return .unable
         default:
             return .unable

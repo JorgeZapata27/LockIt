@@ -129,12 +129,34 @@ class FirebaseAPI {
     
     func getAccounts(completion: @escaping([Account]) -> ()) {
         var accounts = [Account]()
-        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("passwords").observeSingleEvent(of: .childAdded, with: { snapshot in
-            if let value = snapshot.value as? [String : Any] {
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("passwords").observe(.childAdded, with: { snapshot in
+            if let _ = snapshot.value as? [String : Any] {
                 let account = Account(withSnapshot: snapshot)
                 accounts.append(account)
             }
             completion(accounts)
+        })
+    }
+    
+    func getCards(completion: @escaping([Card]) -> ()) {
+        var cards = [Card]()
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("cards").observe(.childAdded, with: { snapshot in
+            if let _ = snapshot.value as? [String : Any] {
+                let card = Card(withSnapshot: snapshot)
+                cards.append(card)
+            }
+            completion(cards)
+        })
+    }
+    
+    func getFavoriteCards(completion: @escaping([Card]) -> ()) {
+        var cards = [Card]()
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("cards").observe(.childAdded, with: { snapshot in
+            if let _ = snapshot.value as? [String : Any] {
+                let card = Card(withSnapshot: snapshot)
+                cards.append(card)
+            }
+            completion(cards)
         })
     }
     

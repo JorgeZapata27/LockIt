@@ -31,6 +31,9 @@
 		784D9E60292E657F009238AD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E5F292E657F009238AD /* UIViewController.swift */; };
 		7867EC75297A057C007AE227 /* StrengthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC74297A057C007AE227 /* StrengthType.swift */; };
 		7867EC77297AC3FD007AE227 /* ImageNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC76297AC3FD007AE227 /* ImageNetworking.swift */; };
+		7867EC79297C6594007AE227 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC78297C6594007AE227 /* Card.swift */; };
+		7867EC7B297C662B007AE227 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC7A297C662B007AE227 /* CardType.swift */; };
+		7867EC7E297C6EE9007AE227 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867EC7D297C6EE9007AE227 /* CardCell.swift */; };
 		78C3E09B2923478800F7270C /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09A2923478800F7270C /* Validator.swift */; };
 		78C3E09D2923487500F7270C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09C2923487500F7270C /* Alerts.swift */; };
 		78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C3E09F29234CFC00F7270C /* LoadingDialog.swift */; };
@@ -92,6 +95,9 @@
 		784D9E5F292E657F009238AD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		7867EC74297A057C007AE227 /* StrengthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrengthType.swift; sourceTree = "<group>"; };
 		7867EC76297AC3FD007AE227 /* ImageNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworking.swift; sourceTree = "<group>"; };
+		7867EC78297C6594007AE227 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		7867EC7A297C662B007AE227 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		7867EC7D297C6EE9007AE227 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		78C3E09A2923478800F7270C /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		78C3E09C2923487500F7270C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		78C3E09F29234CFC00F7270C /* LoadingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingDialog.swift; sourceTree = "<group>"; };
@@ -222,6 +228,14 @@
 				784D9E5B292E6127009238AD /* GoogleAuth.swift */,
 			);
 			path = "Third Party";
+			sourceTree = "<group>";
+		};
+		7867EC7C297C6ED9007AE227 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7867EC7D297C6EE9007AE227 /* CardCell.swift */,
+			);
+			path = UICollectionView;
 			sourceTree = "<group>";
 		};
 		78C3E0A32923C0EF00F7270C /* Networking */ = {
@@ -360,6 +374,7 @@
 		9705148E29688131004C4EF3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7867EC7C297C6ED9007AE227 /* UICollectionView */,
 				9705148F29688139004C4EF3 /* UITableView */,
 			);
 			path = Cells;
@@ -377,7 +392,9 @@
 			isa = PBXGroup;
 			children = (
 				9705149129688184004C4EF3 /* Account.swift */,
+				7867EC78297C6594007AE227 /* Card.swift */,
 				7867EC74297A057C007AE227 /* StrengthType.swift */,
+				7867EC7A297C662B007AE227 /* CardType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -517,12 +534,14 @@
 				784D9E5C292E6127009238AD /* GoogleAuth.swift in Sources */,
 				784D9E56292DD1E1009238AD /* SettingsViewController.swift in Sources */,
 				784D9E60292E657F009238AD /* UIViewController.swift in Sources */,
+				7867EC7E297C6EE9007AE227 /* CardCell.swift in Sources */,
 				782F2A332923092C00CAB4C5 /* MainTextField.swift in Sources */,
 				78DBE3BE293267BF0006AE36 /* LengthView.swift in Sources */,
 				9705147D29676C14004C4EF3 /* SettingsView.swift in Sources */,
 				784D9E4E292DD1BE009238AD /* HomeViewController.swift in Sources */,
 				9705148129687ED4004C4EF3 /* AccountViewController.swift in Sources */,
 				782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */,
+				7867EC7B297C662B007AE227 /* CardType.swift in Sources */,
 				970514962968DD6B004C4EF3 /* InfoView.swift in Sources */,
 				782F2A1F2922F38600CAB4C5 /* LoginViewController.swift in Sources */,
 				784D9E54292DD1DA009238AD /* GeneratorViewController.swift in Sources */,
@@ -533,6 +552,7 @@
 				78DBE3C62932813A0006AE36 /* PasswordPopup.swift in Sources */,
 				784D9E52292DD1D4009238AD /* AddViewController.swift in Sources */,
 				78DBE3C22932712D0006AE36 /* Preference.swift in Sources */,
+				7867EC79297C6594007AE227 /* Card.swift in Sources */,
 				9705149429688280004C4EF3 /* AccountButton.swift in Sources */,
 				784D9E58292DD621009238AD /* BarView.swift in Sources */,
 				784D9E5A292E6111009238AD /* AppleAuth.swift in Sources */,
