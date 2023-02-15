@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSFaceIDUsageDescription</key>
-	<string>Please allow FaceID so you can sign in securely</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -11,7 +9,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.524393309473-77l5om6e3giadc5bpiav2g042pgactif</string>
+				<string>com.googleusercontent.apps.176693099567-ungcfavpvh7ca6o7ddresu3ojhp5pa73</string>
 			</array>
 		</dict>
 	</array>
