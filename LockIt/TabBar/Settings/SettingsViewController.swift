@@ -56,17 +56,19 @@ extension SettingsViewController {
         iconImage.image = UIImage(named: "Transparent")
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Name"
         titleLabel.textAlignment = .center
         titleLabel.font = .boldSystemFont(ofSize: 22)
         titleLabel.textColor = normalTextColor
+        FirebaseAPI.shared.getFullName { name in
+            self.titleLabel.text = name
+        }
         
         emailView.translatesAutoresizingMaskIntoConstraints = false
         emailView.backgroundColor = yellowColor
         emailView.layer.cornerRadius = 15
         
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailLabel.text = "email@gmail.com"
+        emailLabel.text = FirebaseAPI.shared.getEmail()
         emailLabel.textAlignment = .center
         emailLabel.textColor = .black
         emailLabel.font = .boldSystemFont(ofSize: 11)

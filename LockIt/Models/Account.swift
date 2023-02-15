@@ -19,6 +19,7 @@ class Account {
     var strength: StrengthType?
     var dateAdded: String?
     var lastUpdated: String?
+    var dateAddedString: String?
     
     init(withSnapshot snapshot: DataSnapshot) {
         if let value = snapshot.value as? [String : Any] {
@@ -31,7 +32,13 @@ class Account {
             self.strength = getStrength(strength: value["strength"] as? String ?? "unable")
             self.dateAdded = value["dateAdded"] as? String ?? "error"
             self.lastUpdated = value["lastUpdated"] as? String ?? "error"
+            
+            self.setDateString()
         }
+    }
+    
+    init() {
+        //
     }
     
     init(name: String?, username: String?) {
@@ -39,8 +46,18 @@ class Account {
         self.username = username
     }
     
+    func setDateString() {
+        let DBformatter = DateFormatter()
+        DBformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let mobileFormatter = DateFormatter()
+        mobileFormatter.dateFormat = "E, MMMM d, yyyy"
+        let date = DBformatter.date(from: dateAdded!)
+        
+        dateAddedString = mobileFormatter.string(from: date!)
+    }
+    
     func getStrength(strength: String) -> StrengthType {
-        switch strength {
+        switch strength.lowercased() {
         case "weak":
             return.weak
         case "fair":
@@ -51,6 +68,21 @@ class Account {
             return .unable
         default:
             return .unable
+        }
+    }
+    
+    func getStrengthColor() -> UIColor {
+        switch strength {
+        case .weak:
+            return .systemRed
+        case .fair:
+            return .systemBlue
+        case .strong:
+            return .systemGreen
+        case .unable:
+            return .systemRed
+        default:
+            return .systemRed
         }
     }
     
