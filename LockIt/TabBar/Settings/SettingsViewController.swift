@@ -26,6 +26,7 @@ class SettingsViewController: UIViewController {
         general()
         style()
         layout()
+        backend()
         
         // Do any additional setup after loading the view.
     }
@@ -36,7 +37,12 @@ extension SettingsViewController {
     
     // MARK: - General
     func general() {
+        let btn = UIBarButtonItem(title: "Edit Name", style: .done, target: self, action: #selector(editNameTapped))
+        btn.tintColor = yellowColor
+        
         view.backgroundColor = backgroundColor
+        navigationItem.rightBarButtonItem = btn
+        
         addBarView()
         
         bigView1 = SettingsView(height: 111, options: [SettingsOption(titleText: "App Version"), SettingsOption(titleText: "Rate Us"),  SettingsOption(titleText: "Share LockIt")], tag: 0, vc: self)
@@ -59,9 +65,6 @@ extension SettingsViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = .boldSystemFont(ofSize: 22)
         titleLabel.textColor = normalTextColor
-        FirebaseAPI.shared.getFullName { name in
-            self.titleLabel.text = name
-        }
         
         emailView.translatesAutoresizingMaskIntoConstraints = false
         emailView.backgroundColor = yellowColor
@@ -141,6 +144,37 @@ extension SettingsViewController {
         ])
     }
     
+    func backend() {
+        FirebaseAPI.shared.getFullName { name in
+            self.titleLabel.text = name
+        }
+    }
+    
     // MARK: - Functions
+    
+    @objc func editNameTapped() {
+        let alertController = UIAlertController(title: "Edit Name", message: "", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "First Name"
+        }
+        alertController.addTextField { textField in
+            textField.placeholder = "Last Name"
+        }
+        alertController.addAction(UIAlertAction(title: "Save", style: .default, handler: { action in
+            let firstTextField = alertController.textFields![0] as UITextField
+            let secondTextField = alertController.textFields![1] as UITextField
+            print("saved")
+            if let first = firstTextField.text, let last = secondTextField.text {
+                FirebaseAPI.shared.updateName(first: first, last: last) { success in
+                    if success {
+                        self.backend()
+                        self.dismiss(animated: true)
+                    }
+                }
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
     
 }

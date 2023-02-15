@@ -211,4 +211,12 @@ class FirebaseAPI {
         return Auth.auth().currentUser!.email!
     }
     
+    func updateName(first: String, last: String, completion: @escaping(Bool) -> ()) {
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("personalInfo").child("firstName").setValue(first) { error, ref in
+            Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("personalInfo").child("lastName").setValue(last) { error, ref in
+                completion(true)
+            }
+        }
+    }
+    
 }
