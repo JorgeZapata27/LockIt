@@ -5,6 +5,7 @@
 //  Created by JZ M1 on 05.01.23.
 //
 
+import StoreKit
 import Foundation
 import UIKit
 
@@ -13,6 +14,7 @@ class SettingsView: UIView {
     var height: Int?
     var options = [SettingsOption]()
     var vc: UIViewController?
+    let tableView = UITableView()
     
     init(height: Int, options: [SettingsOption], tag: Int, vc: UIViewController) {
         super.init(frame: .zero)
@@ -30,7 +32,6 @@ class SettingsView: UIView {
     }
     
     func configureTable(withTag tag: Int) {
-        let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "REUSE")
         tableView.backgroundColor = .clear
@@ -84,7 +85,7 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         } else {
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.text = "1.0.0"
+            label.text = "4.0.0"
             label.font = .systemFont(ofSize: 14)
             label.textAlignment = .right
             label.textColor = secondaryTextColor
@@ -117,10 +118,6 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
             case 1:
                 rateUs()
             case 2:
-                reportError()
-            case 3:
-                submitFeatureRequest()
-            case 4:
                 shareLockIt()
             default:
                 break
@@ -128,9 +125,9 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
         } else if tableView.tag == 1 {
             switch indexPath.row {
             case 0:
-                print("privacy policy")
+                vc?.showErrorAlert(withTitle: "Coming Soon", withDescription: "The Privacy Policy is coming soon")
             case 1:
-                print("terms & conditions")
+                vc?.showErrorAlert(withTitle: "Coming Soon", withDescription: "The Terms and Conditions are coming soon")
             default:
                 break;
             }
@@ -141,25 +138,32 @@ extension SettingsView: UITableViewDelegate, UITableViewDataSource {
     
     private func shareLockIt() {
         print("share lockit")
-    }
-    
-    private func submitFeatureRequest() {
-        print("submit feature request")
-    }
-    
-    private func reportError() {
-        print("report error")
+        let textToShare = "You need to check out LockIt, it safely secures your passwords and cards so YOU don't have to!"
+        if let myWebsite = NSURL(string: "https://appstoreconnect.apple.com/apps/1470154470/appstore/info") {
+            let objectsToShare: [Any] = [textToShare, myWebsite]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = vc?.view ?? UIView()
+            vc!.present(activityVC, animated: true, completion: nil)
+        }
     }
     
     private func rateUs() {
-        print("rate us")
+        guard let scene = UIApplication.shared.foregroundActiveScene else { return }
+        SKStoreReviewController.requestReview(in: scene)
     }
     
     private func signOut() {
         let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes, Sign Out", style: .destructive, handler: { action in
-            // firebase sign out here
-            print("signed out")
+            FirebaseAPI.shared.logUserOut { success in
+                if success {
+                    let controller = LoginViewController()
+                    controller.modalPresentationStyle = .fullScreen
+                    self.vc?.present(controller, animated: true)
+                } else {
+                    self.vc?.showErrorAlert(withTitle: "Error", withDescription: "Please try again")
+                }
+            }
         }))
         alert.addAction(UIAlertAction(title: "No, Cancel", style: .default, handler: { action in
             print("cancelled")

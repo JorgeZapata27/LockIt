@@ -62,6 +62,9 @@
 		9705149229688184004C4EF3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705149129688184004C4EF3 /* Account.swift */; };
 		9705149429688280004C4EF3 /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705149329688280004C4EF3 /* AccountButton.swift */; };
 		970514962968DD6B004C4EF3 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970514952968DD6B004C4EF3 /* InfoView.swift */; };
+		9743E3BA299C6EC80006D749 /* InfoViewActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */; };
+		9743E3BE299C95BF0006D749 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3BD299C95BF0006D749 /* UIApplication.swift */; };
+		9743E3C0299C9BE50006D749 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3BF299C9BE50006D749 /* SecondaryButton.swift */; };
 		A1FE39E3204A806216C7FB92 /* Pods_LockIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +130,9 @@
 		9705149129688184004C4EF3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9705149329688280004C4EF3 /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
 		970514952968DD6B004C4EF3 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewActionType.swift; sourceTree = "<group>"; };
+		9743E3BD299C95BF0006D749 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		9743E3BF299C9BE50006D749 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				782F2A302923091D00CAB4C5 /* MainButton.swift */,
+				9743E3BF299C9BE50006D749 /* SecondaryButton.swift */,
 				782F2A322923092C00CAB4C5 /* MainTextField.swift */,
 				782F2A3829230FC100CAB4C5 /* TextField.swift */,
 				9705147A2965CDEA004C4EF3 /* NormalTextField.swift */,
@@ -291,6 +298,7 @@
 				78DBE3B729310C750006AE36 /* Biometrics.swift */,
 				78DBE3B929310D240006AE36 /* UIImageView.swift */,
 				78DBE3C329327E150006AE36 /* PasswordGenerator.swift */,
+				9743E3BD299C95BF0006D749 /* UIApplication.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -395,6 +403,7 @@
 				7867EC78297C6594007AE227 /* Card.swift */,
 				7867EC74297A057C007AE227 /* StrengthType.swift */,
 				7867EC7A297C662B007AE227 /* CardType.swift */,
+				9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -523,6 +532,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9743E3C0299C9BE50006D749 /* SecondaryButton.swift in Sources */,
+				9743E3BE299C95BF0006D749 /* UIApplication.swift in Sources */,
 				78DBE3B829310C750006AE36 /* Biometrics.swift in Sources */,
 				97051477295F52DD004C4EF3 /* AccountCell.swift in Sources */,
 				97051473295F4744004C4EF3 /* MainOptionViewChoice.swift in Sources */,
@@ -549,6 +560,7 @@
 				78C3E0A029234CFC00F7270C /* LoadingDialog.swift in Sources */,
 				782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */,
 				78DBE3BC2931186F0006AE36 /* BiometricsEntry.swift in Sources */,
+				9743E3BA299C6EC80006D749 /* InfoViewActionType.swift in Sources */,
 				78DBE3C62932813A0006AE36 /* PasswordPopup.swift in Sources */,
 				784D9E52292DD1D4009238AD /* AddViewController.swift in Sources */,
 				78DBE3C22932712D0006AE36 /* Preference.swift in Sources */,

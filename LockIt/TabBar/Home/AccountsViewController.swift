@@ -126,8 +126,8 @@ extension AccountsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello")
         let controller = AccountViewController()
+        controller.account = accounts[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }

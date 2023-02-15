@@ -15,6 +15,17 @@ class FirebaseAPI {
     
     static let shared = FirebaseAPI()
     
+    func logUserOut(completion: @escaping(Bool) -> ()) {
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+        }
+        catch {
+            print("already logged out")
+            completion(false)
+        }
+    }
+    
     func usesBimetrics(_ user: User, completion: @escaping (Bool) -> Void) {
         Database.database().reference().child("Users").child(user.uid).child("personalInfo").child("usesBiometrics").observeSingleEvent(of: .value) { ref in
             if let value = ref.value as? Bool {
@@ -134,7 +145,22 @@ class FirebaseAPI {
                 let account = Account(withSnapshot: snapshot)
                 accounts.append(account)
             }
-            completion(accounts)
+            completion(accounts.reversed())
+        })
+    }
+    
+    func getFavoriteAccounts(completion: @escaping([Account]) -> ()) {
+        var accounts = [Account]()
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("passwords").observe(.childAdded, with: { snapshot in
+            if let _ = snapshot.value as? [String : Any] {
+                let account = Account(withSnapshot: snapshot)
+                if account.isFavorite ?? false {
+                    accounts.append(account)
+                } else {
+                    return
+                }
+            }
+            completion(accounts.reversed())
         })
     }
     
@@ -145,7 +171,7 @@ class FirebaseAPI {
                 let card = Card(withSnapshot: snapshot)
                 cards.append(card)
             }
-            completion(cards)
+            completion(cards.reversed())
         })
     }
     
@@ -154,10 +180,31 @@ class FirebaseAPI {
         Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("cards").observe(.childAdded, with: { snapshot in
             if let _ = snapshot.value as? [String : Any] {
                 let card = Card(withSnapshot: snapshot)
-                cards.append(card)
+                if card.isFavorite ?? false {
+                    cards.append(card)
+                } else {
+                    return
+                }
             }
-            completion(cards)
+            completion(cards.reversed())
         })
+    }
+    
+    func getFullName(completion: @escaping(String) -> ()) {
+        let uid = Auth.auth().currentUser!.uid
+        Database.database().reference().child("Users").child(uid).child("personalInfo").child("firstName").observe(.value, with: { snapshot in
+            if let firstName = snapshot.value as? String {
+                Database.database().reference().child("Users").child(uid).child("personalInfo").child("lastName").observe(.value, with: { snapshot in
+                    if let lastName = snapshot.value as? String {
+                        completion(firstName + " " + lastName)
+                    }
+                })
+            }
+        })
+    }
+    
+    func getEmail() -> String {
+        return Auth.auth().currentUser!.email!
     }
     
 }

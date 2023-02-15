@@ -24,6 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             firebase.usesBimetrics(user!) { choice in
                 if choice == true {
                     window.rootViewController = UINavigationController(rootViewController: BiometricsEntry())
+                    #if targetEnvironment(simulator)
+                    window.rootViewController = UINavigationController(rootViewController: TabBarController())
+                    #endif
                 } else {
                     window.rootViewController = UINavigationController(rootViewController: TabBarController())
                 }

@@ -93,12 +93,12 @@ extension CardsViewController {
     
     @objc func searchHandler() {
         if let searchText = searchTF.textField.text {
-//            if searchText != "" {
-//                accounts = accounts.filter({$0.name!.lowercased().contains(searchText.lowercased())})
-//                tableView.reloadData()
-//            } else {
-//                backend()
-//            }
+            if searchText != "" {
+                cards = cards.filter({$0.name!.lowercased().contains(searchText.lowercased())})
+                collectionView?.reloadData()
+            } else {
+                backend()
+            }
         }
     }
     

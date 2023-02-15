@@ -9,6 +9,9 @@ import UIKit
 
 class GeneratorViewController: UIViewController {
     
+    // MARK: - Variables
+    var password = ""
+    
     // MARK: - UI Components
     let lengthView = LengthView()
     var preferenceView: PreferenceView?
@@ -21,6 +24,8 @@ class GeneratorViewController: UIViewController {
     let defResultLabel = UILabel()
     let resultLabel = UILabel()
     let buttonView = UIView()
+    let cancelButton = SecondaryButton(named: "Cancel")
+    let copyButton = MainButton(named: "Copy Password")
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -101,13 +106,11 @@ extension GeneratorViewController {
         
         print(password)
         
-//        PasswordPopup().showPasswordPopup(password: password, vc: self)
+        self.password = password
         showPasswordPopup(password: password)
     }
     
     func showPasswordPopup(password: String) {
-        // lifecycle help
-        
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.backgroundColor = .black
         blurView.alpha = 0
@@ -137,8 +140,16 @@ extension GeneratorViewController {
         popupView.addSubview(resultLabel)
         
         buttonView.translatesAutoresizingMaskIntoConstraints = false
-        buttonView.backgroundColor = normalBackgroundColor
+        buttonView.backgroundColor = .clear
         popupView.addSubview(buttonView)
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.addTarget(self, action: #selector(hideView), for: .touchUpInside)
+        popupView.addSubview(cancelButton)
+        
+        copyButton.translatesAutoresizingMaskIntoConstraints = false
+        copyButton.addTarget(self, action: #selector(copyPassword), for: .touchUpInside)
+        popupView.addSubview(copyButton)
         
         NSLayoutConstraint.activate([
             blurView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -169,7 +180,17 @@ extension GeneratorViewController {
             buttonView.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 15),
             buttonView.leftAnchor.constraint(equalTo: popupView.leftAnchor),
             buttonView.rightAnchor.constraint(equalTo: popupView.rightAnchor),
-            buttonView.heightAnchor.constraint(equalToConstant: 60)
+            buttonView.heightAnchor.constraint(equalToConstant: 60),
+            
+            cancelButton.topAnchor.constraint(equalTo: buttonView.topAnchor),
+            cancelButton.heightAnchor.constraint(equalToConstant: 48),
+            cancelButton.widthAnchor.constraint(equalToConstant: 110),
+            cancelButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            
+            copyButton.topAnchor.constraint(equalTo: buttonView.topAnchor),
+            copyButton.heightAnchor.constraint(equalToConstant: 48),
+            copyButton.leftAnchor.constraint(equalTo: cancelButton.rightAnchor, constant: 16),
+            copyButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16)
         ])
         
         self.showView()
@@ -180,17 +201,24 @@ extension GeneratorViewController {
     }
     
     private func showView() {
+        self.tabBarController?.tabBar.isHidden = true
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, animations: {
             self.popupView.center.y -= 215
             self.blurView.alpha = 0.5
         })
     }
     
-    private func hideView() {
+    @objc func hideView() {
+        self.tabBarController?.tabBar.isHidden = false
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, animations: {
             self.popupView.center.y += 215
             self.blurView.alpha = 0
         })
+    }
+    
+    @objc func copyPassword() {
+        UIPasteboard.general.string = self.password
+        hideView()
     }
     
 }

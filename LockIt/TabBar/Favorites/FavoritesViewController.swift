@@ -10,10 +10,14 @@ import CryptoKit
 
 class FavoritesViewController: UIViewController {
     
+    // MARK: - Variables
+    var accounts = [Account]()
+    var cards = [Card]()
+    
     // MARK: - UI Components
     let segmentedControl = UISegmentedControl()
     let tableView = UITableView()
-    let cardView = UIView()
+    var collectionView: UICollectionView?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -22,6 +26,7 @@ class FavoritesViewController: UIViewController {
         general()
         style()
         layout()
+        backend()
         
         // Do any additional setup after loading the view.
     }
@@ -34,6 +39,7 @@ extension FavoritesViewController {
     func general() {
         view.backgroundColor = backgroundColor
         navigationItem.title = "Favorites"
+        navigationController?.navigationBar.tintColor = yellowColor
         addBarView()
     }
     
@@ -42,7 +48,7 @@ extension FavoritesViewController {
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.tintColor = yellowColor
         segmentedControl.insertSegment(withTitle: "Accounts", at: 0, animated: true)
-        segmentedControl.insertSegment(withTitle: "Cards", at: 0, animated: true)
+        segmentedControl.insertSegment(withTitle: "Cards", at: 1, animated: true)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.selectedSegmentTintColor = yellowColor
         segmentedControl.addTarget(self, action: #selector(segmentedControlTapped), for: .valueChanged)
@@ -55,10 +61,18 @@ extension FavoritesViewController {
         tableView.register(AccountCell.self, forCellReuseIdentifier: AccountCell.reuseID)
         tableView.alpha = 1
         
-        cardView.translatesAutoresizingMaskIntoConstraints = false
-        cardView.backgroundColor = secondaryBackgroundColor
-        cardView.layer.cornerRadius = 8
-        cardView.alpha = 0
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 16
+        layout.minimumInteritemSpacing = 1
+        layout.itemSize = CGSize(width: (view.frame.size.width - 16 - 16 - 16) / 2, height: (view.frame.size.width - 16 - 16) / 2)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView!.translatesAutoresizingMaskIntoConstraints = false
+        collectionView!.backgroundColor = .clear
+        collectionView!.register(CardCell.self, forCellWithReuseIdentifier: CardCell.reuseID)
+        collectionView!.delegate = self
+        collectionView!.dataSource = self
+        collectionView?.alpha = 0
     }
     
     
@@ -80,12 +94,12 @@ extension FavoritesViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
-        view.addSubview(cardView)
+        view.addSubview(collectionView!)
         NSLayoutConstraint.activate([
-            cardView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 9.5),
-            cardView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            cardView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
-            cardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            collectionView!.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 16),
+            collectionView!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            collectionView!.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            collectionView!.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
     
@@ -101,7 +115,7 @@ extension FavoritesViewController {
     
     private func showAccounts() {
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut) {
-            self.cardView.alpha = 0
+            self.collectionView!.alpha = 0
         } completion: { success in
             if (success) {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
@@ -117,9 +131,32 @@ extension FavoritesViewController {
         } completion: { success in
             if (success) {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
-                    self.cardView.alpha = 1
+                    self.collectionView!.alpha = 1
                 }
             }
+        }
+    }
+    
+    //MARK: - Backend
+    
+    func backend() {
+        accountsBackend()
+        cardsBackend()
+    }
+    
+    func accountsBackend() {
+        accounts.removeAll()
+        FirebaseAPI.shared.getFavoriteAccounts { accounts in
+            self.accounts = accounts
+            self.tableView.reloadData()
+        }
+    }
+    
+    func cardsBackend() {
+        cards.removeAll()
+        FirebaseAPI.shared.getFavoriteCards { cards in
+            self.cards = cards
+            self.collectionView!.reloadData()
         }
     }
     
@@ -132,7 +169,7 @@ extension FavoritesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return accounts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -145,12 +182,36 @@ extension FavoritesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountCell.reuseID, for: indexPath) as! AccountCell
+        cell.account = accounts[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hello")
-        // MARK: - Todo navigation
+        let controller = AccountViewController()
+        controller.account = accounts[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+}
+
+extension FavoritesViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cards.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.reuseID, for: indexPath) as! CardCell
+        cell.card = cards[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected card")
     }
     
 }
