@@ -3,23 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>524393309473-77l5om6e3giadc5bpiav2g042pgactif.apps.googleusercontent.com</string>
+	<string>176693099567-ungcfavpvh7ca6o7ddresu3ojhp5pa73.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.524393309473-77l5om6e3giadc5bpiav2g042pgactif</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>524393309473-kkjpe8918vd9i6bcmchtn5d10qat7ogp.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.176693099567-ungcfavpvh7ca6o7ddresu3ojhp5pa73</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDtMMsCApFWVmV6P9uuU2GZ1sh_DLE6-H4</string>
+	<string>AIzaSyAUtzFxes7OktsUDMkXyFHfFYkXxJXBvsw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>524393309473</string>
+	<string>176693099567</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>Jorge-Zapata.LockIt</string>
 	<key>PROJECT_ID</key>
-	<string>fir-demo-2c741</string>
+	<string>lockit-data</string>
 	<key>STORAGE_BUCKET</key>
-	<string>fir-demo-2c741.appspot.com</string>
+	<string>lockit-data.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:524393309473:ios:41448b0712948a67720a60</string>
+	<string>1:176693099567:ios:5721c782e9af2db87bdada</string>
 	<key>DATABASE_URL</key>
-	<string>https://fir-demo-2c741.firebaseio.com</string>
+	<string>https://lockit-data-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

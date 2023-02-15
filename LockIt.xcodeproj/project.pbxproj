@@ -16,7 +16,6 @@
 		782F2A332923092C00CAB4C5 /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A322923092C00CAB4C5 /* MainTextField.swift */; };
 		782F2A3729230A4700CAB4C5 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3629230A4700CAB4C5 /* Colors.swift */; };
 		782F2A3929230FC100CAB4C5 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3829230FC100CAB4C5 /* TextField.swift */; };
-		782F2A3B29233D5800CAB4C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */; };
 		782F2A3D2923428200CAB4C5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */; };
 		784D9E49292DC57F009238AD /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E48292DC57F009238AD /* UILabel.swift */; };
 		784D9E4C292DD13D009238AD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784D9E4B292DD13D009238AD /* TabBarController.swift */; };
@@ -65,6 +64,7 @@
 		9743E3BA299C6EC80006D749 /* InfoViewActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */; };
 		9743E3BE299C95BF0006D749 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3BD299C95BF0006D749 /* UIApplication.swift */; };
 		9743E3C0299C9BE50006D749 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3BF299C9BE50006D749 /* SecondaryButton.swift */; };
+		9743E3C2299CAE600006D749 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9743E3C1299CAE600006D749 /* GoogleService-Info.plist */; };
 		A1FE39E3204A806216C7FB92 /* Pods_LockIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC68A7C7B248C4F67D952B1 /* Pods_LockIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +82,6 @@
 		782F2A322923092C00CAB4C5 /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		782F2A3629230A4700CAB4C5 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		782F2A3829230FC100CAB4C5 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		782F2A3C2923428200CAB4C5 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		784D9E48292DC57F009238AD /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		784D9E4B292DD13D009238AD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewActionType.swift; sourceTree = "<group>"; };
 		9743E3BD299C95BF0006D749 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9743E3BF299C9BE50006D749 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		9743E3C1299CAE600006D749 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +186,7 @@
 				78C3E0A32923C0EF00F7270C /* Networking */,
 				782F2A232922F3FD00CAB4C5 /* Assets.xcassets */,
 				782F2A252922F3FD00CAB4C5 /* LaunchScreen.storyboard */,
-				782F2A3A29233D5800CAB4C5 /* GoogleService-Info.plist */,
+				9743E3C1299CAE600006D749 /* GoogleService-Info.plist */,
 				782F2A282922F3FD00CAB4C5 /* Info.plist */,
 			);
 			path = LockIt;
@@ -478,8 +478,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				782F2A272922F3FD00CAB4C5 /* LaunchScreen.storyboard in Resources */,
-				782F2A3B29233D5800CAB4C5 /* GoogleService-Info.plist in Resources */,
 				782F2A242922F3FD00CAB4C5 /* Assets.xcassets in Resources */,
+				9743E3C2299CAE600006D749 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +730,7 @@
 				DEVELOPMENT_TEAM = ZH735L9VC9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockIt/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow FaceID so you can sign in securely";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -760,6 +761,7 @@
 				DEVELOPMENT_TEAM = ZH735L9VC9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockIt/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Please allow FaceID so you can sign in securely";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
