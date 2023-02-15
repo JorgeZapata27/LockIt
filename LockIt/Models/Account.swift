@@ -10,6 +10,7 @@ import FirebaseDatabase
 
 class Account {
     
+    var id: String?
     var name: String?
     var username: String?
     var password: String?
@@ -23,6 +24,7 @@ class Account {
     
     init(withSnapshot snapshot: DataSnapshot) {
         if let value = snapshot.value as? [String : Any] {
+            self.id = value["id"] as? String
             self.name = value["name"] as? String
             self.username = value["username"] as? String
             self.password = value["password"] as? String
