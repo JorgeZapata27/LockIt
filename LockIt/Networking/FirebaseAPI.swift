@@ -203,6 +203,10 @@ class FirebaseAPI {
         })
     }
     
+    func favoriteToggle(id: String, bool: Bool) {
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).child("passwords").child(id).child("isFavorite").setValue(bool)
+    }
+    
     func getEmail() -> String {
         return Auth.auth().currentUser!.email!
     }

@@ -30,13 +30,25 @@ class AccountViewController: UIViewController {
                 if let url = account.imageURL {
                     imageView.loadThumbnail(urlSting: url)
                 }
+                if let isFav = account.isFavorite {
+                    isFavorite = isFav
+                    updateFavBtn(isFav: isFav)
+                }
             }
+        }
+    }
+    
+    var isFavorite = false {
+        didSet {
+            updateFavBtn(isFav: isFavorite)
         }
     }
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.updateFavBtn(isFav: isFavorite)
         
         general()
         style()
@@ -52,6 +64,7 @@ extension AccountViewController {
     // MARK: - General
     func general() {
         view.backgroundColor = backgroundColor
+        
         addBarView()
     }
     
@@ -117,6 +130,37 @@ extension AccountViewController {
     
     @objc func popView() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func editTapped() {
+        print("edit tapped")
+    }
+    
+    func updateFavBtn(isFav: Bool) {
+        let favButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        favButton.addTarget(self, action: #selector(favButtonTapped), for: .touchUpInside)
+        favButton.tintColor = .systemRed
+        
+        let editButton = UIBarButtonItem(image: UIImage(systemName: "pencil"), style: .done, target: self, action: #selector(editTapped))
+        
+        if isFavorite {
+            favButton.setImage(UIImage(systemName: "heart.fill"), for: [])
+        } else {
+            favButton.setImage(UIImage(systemName: "heart"), for: [])
+        }
+        let rightButton = UIBarButtonItem(customView: favButton)
+        self.navigationItem.setRightBarButtonItems([rightButton, editButton], animated: true)
+    }
+    
+    @objc func favButtonTapped() {
+        //do your stuff
+        self.isFavorite.toggle()
+        self.updateFavoriteFirebase()
+        self.updateFavBtn(isFav: isFavorite)
+    }
+    
+    func updateFavoriteFirebase() {
+        FirebaseAPI.shared.favoriteToggle(id: account!.id!, bool: isFavorite)
     }
     
 }
