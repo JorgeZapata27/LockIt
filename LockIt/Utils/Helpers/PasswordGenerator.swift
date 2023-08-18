@@ -30,11 +30,15 @@ class PasswordGenerator {
             list.append(characters)
         }
         
-        for _ in 0 ..< length {
-            thePassword.append(list.randomElement()!)
+        if list == "" {
+            return "error"
+        } else {
+            for _ in 0 ..< length {
+                thePassword.append(list.randomElement()!)
+            }
+            
+            return thePassword
         }
-        
-        return thePassword
     }
     
 }

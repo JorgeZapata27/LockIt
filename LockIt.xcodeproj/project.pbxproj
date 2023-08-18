@@ -61,6 +61,12 @@
 		9705149229688184004C4EF3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705149129688184004C4EF3 /* Account.swift */; };
 		9705149429688280004C4EF3 /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9705149329688280004C4EF3 /* AccountButton.swift */; };
 		970514962968DD6B004C4EF3 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970514952968DD6B004C4EF3 /* InfoView.swift */; };
+		9715E4472A8BE2520090924B /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9715E4462A8BE2520090924B /* CardTextField.swift */; };
+		9715E4492A8C10460090924B /* BuildCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9715E4482A8C10460090924B /* BuildCardController.swift */; };
+		9715E44B2A8C3DEB0090924B /* CardGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9715E44A2A8C3DEB0090924B /* CardGradients.swift */; };
+		97223F9C2A84600A002E7F19 /* AddAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97223F9B2A84600A002E7F19 /* AddAccountController.swift */; };
+		97223F9E2A846075002E7F19 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97223F9D2A846075002E7F19 /* AddCardController.swift */; };
+		97223FA02A846366002E7F19 /* AddAcountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97223F9F2A846366002E7F19 /* AddAcountView.swift */; };
 		9743E3BA299C6EC80006D749 /* InfoViewActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */; };
 		9743E3BE299C95BF0006D749 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3BD299C95BF0006D749 /* UIApplication.swift */; };
 		9743E3C0299C9BE50006D749 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9743E3BF299C9BE50006D749 /* SecondaryButton.swift */; };
@@ -131,6 +137,12 @@
 		9705149129688184004C4EF3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9705149329688280004C4EF3 /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
 		970514952968DD6B004C4EF3 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		9715E4462A8BE2520090924B /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
+		9715E4482A8C10460090924B /* BuildCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildCardController.swift; sourceTree = "<group>"; };
+		9715E44A2A8C3DEB0090924B /* CardGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGradients.swift; sourceTree = "<group>"; };
+		97223F9B2A84600A002E7F19 /* AddAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountController.swift; sourceTree = "<group>"; };
+		97223F9D2A846075002E7F19 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
+		97223F9F2A846366002E7F19 /* AddAcountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAcountView.swift; sourceTree = "<group>"; };
 		9743E3B9299C6EC80006D749 /* InfoViewActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewActionType.swift; sourceTree = "<group>"; };
 		9743E3BD299C95BF0006D749 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		9743E3BF299C9BE50006D749 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
@@ -266,6 +278,7 @@
 				782F2A322923092C00CAB4C5 /* MainTextField.swift */,
 				782F2A3829230FC100CAB4C5 /* TextField.swift */,
 				9705147A2965CDEA004C4EF3 /* NormalTextField.swift */,
+				9715E4462A8BE2520090924B /* CardTextField.swift */,
 				9705149329688280004C4EF3 /* AccountButton.swift */,
 			);
 			path = ReusableUI;
@@ -284,6 +297,7 @@
 				97051470295F337B004C4EF3 /* MainOptionView.swift */,
 				970514952968DD6B004C4EF3 /* InfoView.swift */,
 				9743E3C3299D16240006D749 /* AddTypeView.swift */,
+				97223F9F2A846366002E7F19 /* AddAcountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +307,7 @@
 			children = (
 				78C3E09A2923478800F7270C /* Validator.swift */,
 				782F2A3629230A4700CAB4C5 /* Colors.swift */,
+				9715E44A2A8C3DEB0090924B /* CardGradients.swift */,
 				78C3E09C2923487500F7270C /* Alerts.swift */,
 				78C3E09F29234CFC00F7270C /* LoadingDialog.swift */,
 				784D9E48292DC57F009238AD /* UILabel.swift */,
@@ -364,6 +379,9 @@
 			isa = PBXGroup;
 			children = (
 				784D9E51292DD1D3009238AD /* AddViewController.swift */,
+				97223F9B2A84600A002E7F19 /* AddAccountController.swift */,
+				97223F9D2A846075002E7F19 /* AddCardController.swift */,
+				9715E4482A8C10460090924B /* BuildCardController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -543,8 +561,10 @@
 				9743E3C4299D16240006D749 /* AddTypeView.swift in Sources */,
 				78DBE3B829310C750006AE36 /* Biometrics.swift in Sources */,
 				97051477295F52DD004C4EF3 /* AccountCell.swift in Sources */,
+				97223F9C2A84600A002E7F19 /* AddAccountController.swift in Sources */,
 				97051473295F4744004C4EF3 /* MainOptionViewChoice.swift in Sources */,
 				78DBE3B6293103FF0006AE36 /* Haptic.swift in Sources */,
+				97223FA02A846366002E7F19 /* AddAcountView.swift in Sources */,
 				782F2A312923091D00CAB4C5 /* MainButton.swift in Sources */,
 				784D9E4C292DD13D009238AD /* TabBarController.swift in Sources */,
 				7867EC77297AC3FD007AE227 /* ImageNetworking.swift in Sources */,
@@ -570,6 +590,7 @@
 				9743E3BA299C6EC80006D749 /* InfoViewActionType.swift in Sources */,
 				78DBE3C62932813A0006AE36 /* PasswordPopup.swift in Sources */,
 				784D9E52292DD1D4009238AD /* AddViewController.swift in Sources */,
+				9715E44B2A8C3DEB0090924B /* CardGradients.swift in Sources */,
 				78DBE3C22932712D0006AE36 /* Preference.swift in Sources */,
 				7867EC79297C6594007AE227 /* Card.swift in Sources */,
 				9705149429688280004C4EF3 /* AccountButton.swift in Sources */,
@@ -580,12 +601,15 @@
 				78DBE3B4293100E10006AE36 /* SetupBiometrics.swift in Sources */,
 				970514792964D0D9004C4EF3 /* CardsViewController.swift in Sources */,
 				9705149229688184004C4EF3 /* Account.swift in Sources */,
+				9715E4492A8C10460090924B /* BuildCardController.swift in Sources */,
+				97223F9E2A846075002E7F19 /* AddCardController.swift in Sources */,
 				784D9E50292DD1CB009238AD /* FavoritesViewController.swift in Sources */,
 				78DBE3BA29310D240006AE36 /* UIImageView.swift in Sources */,
 				78C3E0A22923BF3100F7270C /* ForgotPassswordViewController.swift in Sources */,
 				9705147F296770C8004C4EF3 /* SettingsOptions.swift in Sources */,
 				78C3E0A52923C32300F7270C /* FirebaseAPI.swift in Sources */,
 				784D9E49292DC57F009238AD /* UILabel.swift in Sources */,
+				9715E4472A8BE2520090924B /* CardTextField.swift in Sources */,
 				78DBE3B22930FEFD0006AE36 /* Dates.swift in Sources */,
 				78C3E09B2923478800F7270C /* Validator.swift in Sources */,
 				97051475295F4D9F004C4EF3 /* AccountsViewController.swift in Sources */,

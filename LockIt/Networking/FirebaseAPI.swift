@@ -211,4 +211,27 @@ class FirebaseAPI {
         return Auth.auth().currentUser!.email!
     }
     
+    func addCard(withName name: String, withNumber number: String, withDate date: String, withCVV cvv: String, withZipcode zipcode: String, withColor color: String, withType cardType: CardType, withNickname nickname: String?) {
+        let uid = Auth.auth().currentUser!.uid
+        var newName = nickname
+        if nickname == "" {
+            newName = "Card"
+        }
+        let ref = Database.database().reference().child("Users").child(uid).child("cards")
+        let key = Database.database().reference().child("Users").child(uid).child("cards").childByAutoId().key
+        ref.child(key!).updateChildValues([
+            "id" : key as! String,
+            "holderName" : name,
+            "cardNumber" : number,
+            "expDate" : date,
+            "cvv" : cvv as! Int ?? 0,
+            "zipcode" : zipcode,
+            "name" : newName,
+            "lastUpdated" : Dates.shared.getTodayISO(),
+            "dateAdded" : Dates.shared.getTodayISO(),
+            "isFavorite" : false,
+            "cardType" : cardType
+        ])
+    }
+    
 }

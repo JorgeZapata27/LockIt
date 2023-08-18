@@ -11,6 +11,8 @@ target 'LockIt' do
   pod 'FirebaseDatabase'
   pod 'ProgressHUD'
   pod 'GoogleSignIn'
+  pod 'TextFieldFormatter'
+  pod 'CreditCardView'
 
 
 end

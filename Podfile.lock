@@ -5,6 +5,7 @@ PODS:
   - AppAuth/Core (1.6.0)
   - AppAuth/ExternalUserAgent (1.6.0):
     - AppAuth/Core
+  - CreditCardView (0.1.1)
   - FirebaseAnalytics (10.1.0):
     - FirebaseAnalytics/AdIdSupport (= 10.1.0)
     - FirebaseCore (~> 10.0)
@@ -97,17 +98,21 @@ PODS:
   - nanopb/encode (2.30909.0)
   - ProgressHUD (13.6)
   - PromisesObjC (2.1.1)
+  - TextFieldFormatter (0.1.0)
 
 DEPENDENCIES:
+  - CreditCardView
   - FirebaseAnalytics
   - FirebaseAuth
   - FirebaseDatabase
   - GoogleSignIn
   - ProgressHUD
+  - TextFieldFormatter
 
 SPEC REPOS:
   trunk:
     - AppAuth
+    - CreditCardView
     - FirebaseAnalytics
     - FirebaseAuth
     - FirebaseCore
@@ -123,9 +128,11 @@ SPEC REPOS:
     - nanopb
     - ProgressHUD
     - PromisesObjC
+    - TextFieldFormatter
 
 SPEC CHECKSUMS:
   AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
+  CreditCardView: 2f4c9dbede61e2867067b1dbdb8a2b3366d04500
   FirebaseAnalytics: 24cb27b52b2e11ad5013528195b4ca0755dec960
   FirebaseAuth: 19a85b8a42e7c1104a2ffa6987c748daa79a5e64
   FirebaseCore: 55e7ae35991ccca4db03ff8d8df6ed5f17a3e4c7
@@ -141,7 +148,8 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   ProgressHUD: 4bdaa0d2ddf676b23324b199f9facffb5c3a1620
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  TextFieldFormatter: 86dfe06160a885f6eb985e1266bb24a874debb9a
 
-PODFILE CHECKSUM: fec0c932cbafbcb029c6a438f0ffa1accba8c6ae
+PODFILE CHECKSUM: dd21f7566d7718beca3aad9d54fa62c229fcc5f5
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1

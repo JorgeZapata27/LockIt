@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import ProgressHUD
 
 extension UIViewController {
     
@@ -17,6 +18,10 @@ extension UIViewController {
         let alert = UIAlertController(title: title, message: desc, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default))
         present(alert, animated: true)
+    }
+    
+    func showSuccess(titled title: String) {
+        ProgressHUD.showSucceed(title, interaction: false)
     }
     
 }

@@ -25,10 +25,6 @@ class AddViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-}
-
-extension AddViewController {
-    
     // MARK: - General
     func general() {
         view.backgroundColor = backgroundColor

@@ -119,8 +119,12 @@ class AddTypeView: UIView {
             switch type {
             case .account:
                 print("account")
+                let controller = AddAccountController()
+                vc.present(controller, animated: true)
             case .card:
                 print("card")
+                let controller = AddCardController()
+                vc.present(controller, animated: true)
             }
         }
     }

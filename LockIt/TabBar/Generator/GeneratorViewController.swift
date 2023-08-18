@@ -104,10 +104,12 @@ extension GeneratorViewController {
         
         let password = PasswordGenerator().generate(withLength: Int(length), hasNumbers: hasNumbers ?? true, hasLetters: hasLetters ?? true, hasCharacters: hasCharacters ?? true)
         
-        print(password)
-        
-        self.password = password
-        showPasswordPopup(password: password)
+        if password == "error" {
+            self.showErrorAlert(withTitle: "Error", withDescription: "Please select one preference type for your password")
+        } else {
+            self.password = password
+            self.showPasswordPopup(password: password)
+        }
     }
     
     func showPasswordPopup(password: String) {
@@ -219,6 +221,7 @@ extension GeneratorViewController {
     @objc func copyPassword() {
         UIPasteboard.general.string = self.password
         hideView()
+        showSuccess(titled: "Copied!")
     }
     
 }
